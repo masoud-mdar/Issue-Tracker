@@ -17,7 +17,7 @@ const Log = (props) => {
     return (
         <div style={{"overflow": "auto"}}>
             <div className="my-tickets-info">
-                <h2>There is {length} Ticket{length > 1 ? "s" : ""} either assigned to or created by you</h2>
+                <h2>There {length > 1 ? "are" : "is"}  {length} Ticket{length > 1 ? "s" : ""} either assigned to or created by you</h2>
                     
             </div>
 

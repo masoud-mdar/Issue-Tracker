@@ -13,6 +13,7 @@ import updateFunc from "../logic/updateFunc"
 import surelyDeleteFunc from "../logic/surelyDeleteFunc"
 import simpleSearchFunc from "../logic/simpleSearchFunc"
 import advancedSearchFunc from "../logic/advancedSearchFunc"
+import myTicketsFunc from "../logic/myTicketsFunc"
 
 import List from "./List"
 import Select from "./Select"
@@ -51,9 +52,9 @@ const App = () => {
     const [isSearchActive, setIsSearchActive] = useState(false)
     const [isLog, setIsLog] = useState(false)
 
-    const [myProjects, setMyProjects] = useState([])
-    const [mySelectedProject, setMySelectedProject] = useState("")
-    const [myIssuesList, setMyIssuesList] = useState([])
+    //const [myProjects, setMyProjects] = useState([])
+    //const [mySelectedProject, setMySelectedProject] = useState("")
+    //const [myIssuesList, setMyIssuesList] = useState([])
     //const [projects, setProjects] = useState([])
     //const [selectedProject, setSelectedProject] = useState("")
     //const [issuesList, setIssuesList] = useState([])
@@ -246,29 +247,9 @@ const App = () => {
                 }, 100)
                 break
             case "my-tickets":
-                console.log(id)
                 setIsLog(prevIsLog => !prevIsLog)
                 closeFunc(setSelectedIssue, setAddProject, setNewProjectInput, setAddIssue, setUpdateIssue, setDeleteIssue, setAdvancedSearch, setOpenOrClose, setSearchInput, setProjectInput, setIdInput, inputRemover, setIsLog, "no")
-                let tempArr = []
-                axios.get(`${BASE_URL}/api/issues/mytickets?assigned_to=${demoUser}`).then(response => {
-                    const assignedData = response.data
-                    assignedData.forEach(item => {
-                        tempArr.push(item)
-                    })
-                    
-                    axios.get(`${BASE_URL}/api/issues/mytickets?created_by=${demoUser}`).then(response => {
-                        const {data} = response
-                        data.forEach(item => {
-                            tempArr.push(item)
-                        })
-                        setIssuesList(tempArr)
-                    })
-                    
-                })
-
-
-                
-
+                myTicketsFunc(axios, BASE_URL, setIssuesList, id)
                 break
             default:
                 console.log(name)
@@ -411,8 +392,8 @@ const App = () => {
                                         <Log
                                             data={{
                                                 issuesList: issuesList,
-                                                selectedProject: mySelectedProject,
-                                                myProjects: myProjects,
+                                                selectedProject: selectedProject,
+                                                myProjects: projects,
                                                 handleClick: handleClick
                                             }}
                                         />
