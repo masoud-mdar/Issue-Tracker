@@ -242,7 +242,7 @@ const App = () => {
             case "my-tickets":
                 setIsLog(prevIsLog => !prevIsLog)
                 closeFunc(setSelectedIssue, setAddProject, setNewProjectInput, setAddIssue, setUpdateIssue, setDeleteIssue, setAdvancedSearch, setOpenOrClose, setSearchInput, setProjectInput, setIdInput, inputRemover, setIsLog, "no")
-                myTicketsFunc(axios, BASE_URL, setIssuesList, id)
+                myTicketsFunc(axios, BASE_URL, setIssuesList, id, setIsLoading)
                 break
             default:
                 console.log(name)

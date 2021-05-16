@@ -1,4 +1,5 @@
-const myTicketsFunc = (axios, BASE_URL, setIssuesList, id) => {
+const myTicketsFunc = (axios, BASE_URL, setIssuesList, id, setIsLoading) => {
+    setIsLoading(true)
     let tempArr = []
     axios.get(`${BASE_URL}/api/issues/mytickets?assigned_to=${id}`).then(response => {
         const assignedData = response.data
@@ -12,6 +13,7 @@ const myTicketsFunc = (axios, BASE_URL, setIssuesList, id) => {
                 tempArr.push(item)
             })
             setIssuesList(tempArr)
+            setIsLoading(false)
         }) 
     })
 }
