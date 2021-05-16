@@ -52,13 +52,6 @@ const App = () => {
     const [isSearchActive, setIsSearchActive] = useState(false)
     const [isLog, setIsLog] = useState(false)
 
-    //const [myProjects, setMyProjects] = useState([])
-    //const [mySelectedProject, setMySelectedProject] = useState("")
-    //const [myIssuesList, setMyIssuesList] = useState([])
-    //const [projects, setProjects] = useState([])
-    //const [selectedProject, setSelectedProject] = useState("")
-    //const [issuesList, setIssuesList] = useState([])
-
     const [moreDetails, setMoreDetails] = useState(false)
     const [addProject, setAddProject] = useState(false)
     const [addIssue, setAddIssue] = useState(false)
@@ -409,10 +402,7 @@ const App = () => {
                                         />
                                     )
                                 }
-                                
-
-                                    
-
+            
                             </div>
                         </div>
                     </div>
@@ -421,6 +411,7 @@ const App = () => {
                     <Loading />
                 )
             }
+            
         </div>
     )
 }

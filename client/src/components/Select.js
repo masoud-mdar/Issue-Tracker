@@ -19,7 +19,6 @@ const Select = (props) => {
                     }
                 </ul>
             </div>
-
         </div>
     )
 
