@@ -27,7 +27,6 @@ const submitNProjectFunc = (setIsLoading, setSelectedProject, setIssuesList, set
                         setSelectedProject(newProjectInput)
                         setIssuesList([data])
                         setCount(prevCount => prevCount + 1)
-                        //console.log(data)
                       }
                     }
                 )

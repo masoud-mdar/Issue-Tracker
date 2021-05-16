@@ -27,7 +27,6 @@ const submitIssueFunc = (setIsLoading, newIssueTitleInput, newIssueTextInput, ne
                 (result) => {
                   if (result.isConfirmed || result.isDismissed) {
                     getList(selectedProject)
-                    console.log(data)
                   }
                 }
             )

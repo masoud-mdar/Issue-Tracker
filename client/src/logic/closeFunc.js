@@ -11,7 +11,6 @@ const closeFunc = (setSelectedIssue, setAddProject, setNewProjectInput, setAddIs
     setSearchInput("")
     setProjectInput("")
     setIdInput("")
-    //setIsLog(false)
     inputRemover(true, false, true, true)
 }
 

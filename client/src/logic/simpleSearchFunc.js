@@ -3,7 +3,6 @@ const simpleSearchFunc = (setIsLoading, searchInput, axios, BASE_URL, setIssuesL
     setIsLoading(true)
     setMoreDetails(false)
     
-    
     if (searchInput) {
 
         axios.get(`${BASE_URL}/api/issues/${searchInput}`).then(response => {

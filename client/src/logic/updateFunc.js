@@ -28,7 +28,6 @@ const updateFunc = (setIsLoading, issueId, newIssueTitleInput, newIssueTextInput
                 (result) => {
                   if (result.isConfirmed || result.isDismissed) {
                     getList(selectedProject)
-                    console.log(data)
                   }
                 }
             )

@@ -66,7 +66,6 @@ input::placeholder {
     color: #fafafa;
 }
 
-
 .nav-bar .search-part {
     display: flex;
     justify-content: space-evenly;
@@ -107,10 +106,6 @@ input::placeholder {
     width: 25vw;
 }
 
-
-
-
-
 .main-part {
     width: 100vw;
     height: 90vh;
@@ -143,7 +138,6 @@ input::placeholder {
 }
 
 .add-p-btn {
-    
     height: 10vh;
     padding: 16px;
     margin: 0px 5px;
@@ -493,7 +487,6 @@ input::placeholder {
     border: none;
     border-radius: 5px;
     background-color: #202529;
-    /*color: #00243371;*/
     color: orange;
     font-size: 24px;
     font-weight: bold;

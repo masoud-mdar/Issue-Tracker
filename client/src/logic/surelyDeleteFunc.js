@@ -23,7 +23,6 @@ const surelyDeleteFunc = (setIsLoading, issueId, axios, BASE_URL, selectedProjec
                 (result) => {
                   if (result.isConfirmed || result.isDismissed) {
                     getList(selectedProject)
-                    console.log(data)
                   }
                 }
             )

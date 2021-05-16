@@ -12,8 +12,7 @@ const myTicketsFunc = (axios, BASE_URL, setIssuesList, id) => {
                 tempArr.push(item)
             })
             setIssuesList(tempArr)
-        })
-        
+        }) 
     })
 }
 

@@ -6,4 +6,5 @@ const addIssueFunc = (setAddIssue, setUpdateIssue, setAddProject, inputRemover, 
     setIsLog(false)
     inputRemover(false, false, true, false)
 }
+
 export default addIssueFunc
