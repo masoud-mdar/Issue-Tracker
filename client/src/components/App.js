@@ -276,6 +276,25 @@ const App = () => {
                 axios.post(`${BASE_URL}/login`, sendingData, {withCredentials: true}).then(response => {
                     const {data} = response
                     console.log(data)
+
+                    if (data.hasOwnProperty("success")) {
+                        setIsLoggedIn(true)
+                        setDemoUser(data.user)
+                    } else if (data.hasOwnProperty("error")) {
+                        // show the error msg
+                    }
+                })
+                break
+
+            case "logout":
+
+                axios.get(`${BASE_URL}/logout`).then(response => {
+                    const {data} = response
+
+                    console.log(data)
+                    //show a msg maybe
+                    setIsLoggedIn(false)
+                    setDemoUser("")
                 })
                 break
             default:

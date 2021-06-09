@@ -15,6 +15,7 @@ const Navbar = (props) => {
                 <div className="nav-buttons">
                     <button name="my-tickets" id={props.data.user} onClick={props.data.handleClick}>{props.data.isLog ? "All Projects" : "My Tickets"}</button>
                     <button name="username" onClick={props.data.handleClick}>{props.data.user}</button>
+                    <button name="logout" onClick={props.data.handleClick}>Log Out</button>
                 </div>
 
             </div>

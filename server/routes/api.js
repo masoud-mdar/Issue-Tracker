@@ -283,4 +283,10 @@ module.exports = function (app, myDataBase) {
       res.json({"success": "user is successfully authenticated", "user": req.user.username})
     })
 
+  app.route("/logout")
+    .get((req, res) => {
+      req.logout()
+      res.json({"succes": "User loged out successfully"})
+    })
+
 };
