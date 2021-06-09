@@ -22,9 +22,10 @@ module.exports = function (app, authDataBase) {
 
     // defining the passport local auth strategy
 
-    passport.authenticate(new localStrategy(
+    passport.use(new localStrategy(
         (username, password, done) => {
             authDataBase.findOne({username: username}, (err, user) => {
+                console.log(`user ${username} attempted to login`)
                 
                 if (err) {
                     return done(err)

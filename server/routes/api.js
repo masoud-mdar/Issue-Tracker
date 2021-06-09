@@ -1,4 +1,6 @@
 'use strict';
+const passport = require("passport")
+const localStrategy = require("passport-local")
 const ObjectId = require("mongodb").ObjectId
 
 module.exports = function (app, myDataBase) {
@@ -254,4 +256,31 @@ module.exports = function (app, myDataBase) {
         })
       }
     });
+
+  // authentications
+
+  const ensureAuthenticated = (req, res, next) => {
+    if (req.isAuthenticated()) {
+      next()
+
+    } else {
+      res.redirect("/")
+    }
+  }
+
+  app.route("/login")
+    .post(passport.authenticate("local", {failureRedirect: "/loginerr"}),(req, res) => {
+      res.json({"success": " user successfully authenticated", "user": req.user.username})
+    })
+
+  app.route("/loginerr")
+    .get((req, res) => {
+      res.json({"error": "username or password incorrect or user does not exist"})
+    })
+
+  app.route("/profile")
+    .get(ensureAuthenticated, (req, res) => {
+      res.json({"success": "user is successfully authenticated", "user": req.user.username})
+    })
+
 };

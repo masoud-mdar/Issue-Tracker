@@ -269,6 +269,14 @@ const App = () => {
                 break
             case "login":
                 // connect to server to log in
+                const sendingData = {
+                    username: loginUserInput,
+                    password: loginPassInput
+                }
+                axios.post(`${BASE_URL}/login`, sendingData, {withCredentials: true}).then(response => {
+                    const {data} = response
+                    console.log(data)
+                })
                 break
             default:
                 console.log(name)
