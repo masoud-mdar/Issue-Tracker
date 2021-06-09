@@ -29,7 +29,6 @@ import AdvancedSearch from "./AdvancedSearch"
 import Log from "./Log"
 
 import {BASE_URL} from "../utils/constants"
-//import {demoUser} from "../utils/constants"
 
 const App = () => {
     const [projects, setProjects] = useState([])
