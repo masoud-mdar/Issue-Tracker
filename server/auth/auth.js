@@ -44,7 +44,7 @@ module.exports = function (app, authDataBase) {
                     return done(null, false)
                 }
                 console.log("position 4")
-                done(null, true)
+                done(null, user)
             })
         }
     ))
