@@ -3,7 +3,7 @@ const passport = require("passport")
 const localStrategy = require("passport-local")
 const ObjectId = require("mongodb").ObjectId
 
-module.exports = function (app, myDataBase) {
+module.exports = function (app, myDataBase, authDataBase) {
 
   app.route("/api/issues/empty")
   
@@ -268,6 +268,7 @@ module.exports = function (app, myDataBase) {
     }
   }
 
+
   app.route("/login")
     .post(passport.authenticate("local", {failureRedirect: "/loginerr"}),(req, res) => {
       res.json({"success": " user successfully authenticated", "user": req.user.username})
@@ -287,6 +288,33 @@ module.exports = function (app, myDataBase) {
     .get((req, res) => {
       req.logout()
       res.json({"succes": "User loged out successfully"})
+    })
+
+  app.route("/register")
+    .post((req, res, next) => {
+      authDataBase.findOne({username: req.body.username}, (err, user) => {
+        if (err) {
+          next(err)
+        } else if (user) {
+          res.json({"error": "user already exists"})
+
+        } else if (!user) {
+
+          authDataBase.insertOne({
+            username: req.body.username,
+            password: req.body.password
+          }, (err, doc) => {
+            if (err) {
+              res.redirect("/")
+            } else {
+              console.log(doc.ops[0])
+              next(null, doc.ops[0])
+            }
+          })
+        }
+      })
+    },passport.authenticate("local", {failureRedirect: "/"}), (req, res) => {
+      res.redirect("/")
     })
 
 };

@@ -72,6 +72,8 @@ const App = () => {
 
     const [loginUserInput, setLoginUserInput] = useState("")
     const [loginPassInput, setLoginPassInput] = useState("")
+    const [regUserInput, setRegUserInput] = useState("")
+    const [regPassInput, setRegPassInput] = useState("")
 
     let timerId
 
@@ -183,6 +185,12 @@ const App = () => {
                 break
             case "login-password":
                 setLoginPassInput(value)
+                break
+            case "register-username":
+                setRegUserInput(value)
+                break
+            case "register-password":
+                setRegPassInput(value)
                 break
             default:
                 console.log(name)
@@ -297,6 +305,22 @@ const App = () => {
                     setDemoUser("")
                 })
                 break
+
+            case "register":
+
+                const sendingData2 = {
+                    username: regUserInput,
+                    password: regPassInput
+                }
+
+                axios.post(`${BASE_URL}/register`, sendingData2, {withCredentials: true}).then(response => {
+                    const {data} = response
+
+                    console.log(data)
+                })
+
+                break
+
             default:
                 console.log(name)
                 break
@@ -473,7 +497,11 @@ const App = () => {
                             <input name="login-password" onChange={handleChange} value={loginPassInput} placeholder="Enter your password"></input>
                             <button name="login" onClick={handleClick}>login</button>
                         </div>
-                        <div className="register-part"></div>
+                        <div className="register-part">
+                            <input name="register-username" onChange={handleChange} value={regUserInput} placeholder="Enter a username"></input>
+                            <input name="register-password" onChange={handleChange} value={regPassInput} placeholder="Enter a password"></input>
+                            <button name="register" onClick={handleClick}>Sign Up</button>
+                        </div>
 
                     </div>
                 ) : (

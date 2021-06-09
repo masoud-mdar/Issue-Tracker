@@ -37,7 +37,7 @@ myDB (async (client) => {
     const authDataBase = await client.db("issuetracker").collection("auths")
     
 
-    apiRoutes(app, myDataBase)
+    apiRoutes(app, myDataBase, authDataBase)
 
     authenticate(app, authDataBase)
 
