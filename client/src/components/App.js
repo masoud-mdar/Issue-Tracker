@@ -29,7 +29,7 @@ import AdvancedSearch from "./AdvancedSearch"
 import Log from "./Log"
 
 import {BASE_URL} from "../utils/constants"
-import {demoUser} from "../utils/constants"
+//import {demoUser} from "../utils/constants"
 
 const App = () => {
     const [projects, setProjects] = useState([])
@@ -64,6 +64,15 @@ const App = () => {
 
     const [copied, setCopied] = useState("")
     const [count, setCount] = useState(0)
+
+    //with log in / register functionality
+
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+    const [demoUser, setDemoUser] = useState("")
+
+    const [loginUserInput, setLoginUserInput] = useState("")
+    const [loginPassInput, setLoginPassInput] = useState("")
 
     let timerId
 
@@ -170,6 +179,12 @@ const App = () => {
             case "open-close":
                 setOpenOrClose(value)
                 break
+            case "login-username":
+                setLoginUserInput(value)
+                break
+            case "login-password":
+                setLoginPassInput(value)
+                break
             default:
                 console.log(name)
                 break
@@ -244,6 +259,18 @@ const App = () => {
                 closeFunc(setSelectedIssue, setAddProject, setNewProjectInput, setAddIssue, setUpdateIssue, setDeleteIssue, setAdvancedSearch, setOpenOrClose, setSearchInput, setProjectInput, setIdInput, inputRemover, setIsLog, "no")
                 myTicketsFunc(axios, BASE_URL, setIssuesList, id, setIsLoading)
                 break
+            case "demo-login":
+                setDemoUser("demoUser")
+                setIsLoggedIn(true)
+                console.log("hihi")
+                break
+            case "administrator-login":
+                setDemoUser("administrator")
+                setIsLoggedIn(true)
+                break
+            case "login":
+                // connect to server to log in
+                break
             default:
                 console.log(name)
                 break
@@ -260,7 +287,8 @@ const App = () => {
     return (
         <div>
             {
-                !isLoading ? (
+                !isLoading && isLoggedIn ? (
+
 
                     <div className="container">
 
@@ -407,6 +435,21 @@ const App = () => {
                         </div>
                     </div>
 
+                ) : !isLoading && !isLoggedIn ? (
+                    <div className="login-page">
+
+                        <div className="default-part">
+                            <button name="demo-login" onClick={handleClick}>Log in as demo user</button>
+                            <button name="administrator-login" onClick={handleClick}>Log in as Administrator</button>
+                        </div>
+                        <div className="login-part">
+                            <input name="login-username" onChange={handleChange} value={loginUserInput} placeholder="Enter your username"></input>
+                            <input name="login-password" onChange={handleChange} value={loginPassInput} placeholder="Enter your password"></input>
+                            <button name="login" onClick={handleClick}>login</button>
+                        </div>
+                        <div className="register-part"></div>
+
+                    </div>
                 ) : (
                     <Loading />
                 )

@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5000
 const app = express()
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({origin: "http://localhost:3000", credentials: true}))
 
 app.get("/", (req, res) => {
     res.send("Hello !")
@@ -18,6 +18,9 @@ app.get("/", (req, res) => {
 myDB (async (client) => {
 
     const myDataBase = await client.db("issuetracker").collection("mycollection")
+
+    const authDataBase = await client.db("issuetracker").collection("auths")
+    //console.log(authDataBase)
 
     apiRoutes(app, myDataBase)
 
