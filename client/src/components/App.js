@@ -317,6 +317,7 @@ const App = () => {
                     setLoginPassInput("")
                     setRegUserInput("")
                     setRegPassInput("")
+                    
                 })
                 break
 
