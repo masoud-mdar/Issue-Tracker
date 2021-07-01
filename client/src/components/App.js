@@ -27,6 +27,7 @@ import Loading from "./Loading"
 import Navbar from "./Navbar"
 import AdvancedSearch from "./AdvancedSearch"
 import Log from "./Log"
+import LoginPage from "./LoginPage"
 
 import {BASE_URL} from "../utils/constants"
 
@@ -284,13 +285,20 @@ const App = () => {
                 axios.post(`${BASE_URL}/login`, sendingData, {withCredentials: true}).then(response => {
                     const {data} = response
                     console.log(data)
+                    console.log("zzz")
 
                     if (data.hasOwnProperty("success")) {
                         setIsLoggedIn(true)
                         setDemoUser(data.user)
+                        setLoginUserInput("")
+                        setLoginPassInput("")
+                        setRegUserInput("")
+                        setRegPassInput("")
                     } else if (data.hasOwnProperty("error")) {
                         // show the error msg
                     }
+
+                    //to do: cleaning up the inputs in all login fields
                 })
                 break
 
@@ -303,6 +311,10 @@ const App = () => {
                     //show a msg maybe
                     setIsLoggedIn(false)
                     setDemoUser("")
+                    setLoginUserInput("")
+                    setLoginPassInput("")
+                    setRegUserInput("")
+                    setRegPassInput("")
                 })
                 break
 
@@ -317,6 +329,15 @@ const App = () => {
                     const {data} = response
 
                     console.log(data)
+
+                    if (data.hasOwnProperty("success")) {
+                        setIsLoggedIn(true)
+                        setDemoUser(data.user)
+                        setRegUserInput("")
+                        setRegPassInput("")
+                        setLoginUserInput("")
+                        setLoginPassInput("")
+                    }
                 })
 
                 break
@@ -486,24 +507,16 @@ const App = () => {
                     </div>
 
                 ) : !isLoading && !isLoggedIn ? (
-                    <div className="login-page">
-
-                        <div className="default-part">
-                            <button name="demo-login" onClick={handleClick}>Log in as demo user</button>
-                            <button name="administrator-login" onClick={handleClick}>Log in as Administrator</button>
-                        </div>
-                        <div className="login-part">
-                            <input name="login-username" onChange={handleChange} value={loginUserInput} placeholder="Enter your username"></input>
-                            <input name="login-password" onChange={handleChange} value={loginPassInput} placeholder="Enter your password"></input>
-                            <button name="login" onClick={handleClick}>login</button>
-                        </div>
-                        <div className="register-part">
-                            <input name="register-username" onChange={handleChange} value={regUserInput} placeholder="Enter a username"></input>
-                            <input name="register-password" onChange={handleChange} value={regPassInput} placeholder="Enter a password"></input>
-                            <button name="register" onClick={handleClick}>Sign Up</button>
-                        </div>
-
-                    </div>
+                    <LoginPage
+                        data={{
+                            handleClick: handleClick,
+                            handleChange: handleChange,
+                            loginUserInput: loginUserInput,
+                            loginPassInput: loginPassInput,
+                            regUserInput: regUserInput,
+                            regPassInput: regPassInput
+                        }}
+                    />
                 ) : (
                     <Loading />
                 )

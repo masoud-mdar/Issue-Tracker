@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=KoHo:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
 
+/*<div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>*/
+/*<div>Icons made by <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">Eucalyp</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>*/
+
+
 * {
     padding: 0;
     margin: 0;
@@ -733,6 +737,26 @@ input[type="radio"] {
     border-radius: 5px;
     color: #002433;
     font-weight: bolder;
+}
+
+.login-page {
+    width: 100vw;
+    height: 100vh;
+    background-color: #002433;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-wrapper {
+    border: 1px solid #fafafa;
+    width: 30vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 

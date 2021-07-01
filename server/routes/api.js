@@ -314,7 +314,7 @@ module.exports = function (app, myDataBase, authDataBase) {
         }
       })
     },passport.authenticate("local", {failureRedirect: "/"}), (req, res) => {
-      res.redirect("/")
+      res.redirect("/profile")
     })
 
 };
