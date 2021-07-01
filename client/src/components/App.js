@@ -309,7 +309,7 @@ const App = () => {
                 axios.get(`${BASE_URL}/logout`).then(response => {
                     const {data} = response
 
-                    //console.log(data)
+                    console.log(data)
                     //show a msg maybe
                     setIsLoggedIn(false)
                     setDemoUser("")
