@@ -335,12 +335,22 @@ const App = () => {
                     console.log("in register axios")
 
                     if (!data.hasOwnProperty("error")) {
-                        setIsLoggedIn(true)
-                        setDemoUser(data.user)
-                        setRegUserInput("")
-                        setRegPassInput("")
-                        setLoginUserInput("")
-                        setLoginPassInput("")
+
+                        axios.post(`${BASE_URL}/login`, sendingData, {withCredentials: true}).then(response => {
+                            const {data} = response
+                            console.log(data)
+                            console.log("zzz")
+        
+                            if (data.hasOwnProperty("success")) {
+                                setIsLoggedIn(true)
+                                setDemoUser(data.user)
+                                setLoginUserInput("")
+                                setLoginPassInput("")
+                                setRegUserInput("")
+                                setRegPassInput("")
+                            }
+        
+                        })
                     }
                 })
 
