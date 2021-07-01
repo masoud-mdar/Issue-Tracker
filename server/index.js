@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 5000
 const app = express()
 
 app.use(express.json())
-app.use(cors({origin: "http://localhost:3000", credentials: true}))
+app.use(cors({origin: "https://issue-tracker-masoud.netlify.app", credentials: true}))
 
 app.use(session({
     secret: process.env.SESSION_SECRET,
