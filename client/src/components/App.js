@@ -331,6 +331,7 @@ const App = () => {
                     const {data} = response
 
                     console.log(data)
+                    console.log("in register axios")
 
                     if (data.hasOwnProperty("success")) {
                         setIsLoggedIn(true)
