@@ -281,6 +281,7 @@ module.exports = function (app, myDataBase, authDataBase) {
 
   app.route("/profile")
     .get(ensureAuthenticated, (req, res) => {
+      console.log("in profile")
       res.json({"success": "user is successfully authenticated", "user": req.user.username})
     })
 
@@ -305,9 +306,11 @@ module.exports = function (app, myDataBase, authDataBase) {
             password: req.body.password
           }, (err, doc) => {
             if (err) {
+              console.log("position 1")
               res.redirect("/")
             } else {
               console.log(doc.ops[0])
+              console.log("position 2")
               next(null, doc.ops[0])
             }
           })

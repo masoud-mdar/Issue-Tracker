@@ -272,7 +272,7 @@ const App = () => {
             case "demo-login":
                 setDemoUser("demoUser")
                 setIsLoggedIn(true)
-                console.log("hihi")
+                //console.log("hihi")
                 break
             case "administrator-login":
                 setDemoUser("administrator")
@@ -286,8 +286,8 @@ const App = () => {
                 }
                 axios.post(`${BASE_URL}/login`, sendingData, {withCredentials: true}).then(response => {
                     const {data} = response
-                    console.log(data)
-                    console.log("zzz")
+                    //console.log(data)
+                    //console.log("in login")
 
                     if (data.hasOwnProperty("success")) {
                         setIsLoggedIn(true)
@@ -309,7 +309,7 @@ const App = () => {
                 axios.get(`${BASE_URL}/logout`).then(response => {
                     const {data} = response
 
-                    console.log(data)
+                    //console.log(data)
                     //show a msg maybe
                     setIsLoggedIn(false)
                     setDemoUser("")
@@ -317,6 +317,7 @@ const App = () => {
                     setLoginPassInput("")
                     setRegUserInput("")
                     setRegPassInput("")
+                    setIsRegMode(false)
 
                 })
                 break
@@ -331,27 +332,16 @@ const App = () => {
                 axios.post(`${BASE_URL}/register`, sendingData2, {withCredentials: true}).then(response => {
                     const {data} = response
 
-                    console.log(data)
-                    console.log("in register axios")
+                    //console.log(data)
+                    //console.log("in register axios")
+                    //console.log(data.user)
+                    setIsLoggedIn(true)
+                    setDemoUser(data.user)
+                    setLoginUserInput("")
+                    setLoginPassInput("")
+                    setRegUserInput("")
+                    setRegPassInput("")
 
-                    if (!data.hasOwnProperty("error")) {
-
-                        axios.post(`${BASE_URL}/login`, sendingData, {withCredentials: true}).then(response => {
-                            const {data} = response
-                            console.log(data)
-                            console.log("zzz")
-        
-                            if (data.hasOwnProperty("success")) {
-                                setIsLoggedIn(true)
-                                setDemoUser(data.user)
-                                setLoginUserInput("")
-                                setLoginPassInput("")
-                                setRegUserInput("")
-                                setRegPassInput("")
-                            }
-        
-                        })
-                    }
                 })
 
                 break
