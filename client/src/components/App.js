@@ -317,7 +317,7 @@ const App = () => {
                     setLoginPassInput("")
                     setRegUserInput("")
                     setRegPassInput("")
-                    
+
                 })
                 break
 
@@ -334,7 +334,7 @@ const App = () => {
                     console.log(data)
                     console.log("in register axios")
 
-                    if (data.hasOwnProperty("success")) {
+                    if (!data.hasOwnProperty("error")) {
                         setIsLoggedIn(true)
                         setDemoUser(data.user)
                         setRegUserInput("")
