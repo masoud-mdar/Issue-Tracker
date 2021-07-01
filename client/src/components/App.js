@@ -76,6 +76,8 @@ const App = () => {
     const [regUserInput, setRegUserInput] = useState("")
     const [regPassInput, setRegPassInput] = useState("")
 
+    const [isRegMode, setIsRegMode] = useState(false)
+
     let timerId
 
     useEffect(() => {
@@ -342,6 +344,13 @@ const App = () => {
 
                 break
 
+            case "regMode-btn":
+                setIsRegMode(true)
+                break
+            case "back-login":
+                setIsRegMode(false)
+                break
+
             default:
                 console.log(name)
                 break
@@ -514,7 +523,8 @@ const App = () => {
                             loginUserInput: loginUserInput,
                             loginPassInput: loginPassInput,
                             regUserInput: regUserInput,
-                            regPassInput: regPassInput
+                            regPassInput: regPassInput,
+                            isRegMode: isRegMode
                         }}
                     />
                 ) : (

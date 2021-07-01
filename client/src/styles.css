@@ -754,7 +754,7 @@ input[type="radio"] {
     height: 70vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     border: 1px solid #fafafa;
     border-radius: 5px;
@@ -762,6 +762,7 @@ input[type="radio"] {
 
 .login-wrapper .default-part {
     width: 30vw;
+    height: 20vh;
     display: flex;
     justify-content: space-evenly;
 }
@@ -798,12 +799,72 @@ input[type="radio"] {
     text-align: center;
 }
 
+.demo-login:hover {
+    opacity: 0.8;
+}
+
 .demo-login:hover div {
     opacity: 1;
 }
 
+.administrator-login:hover {
+    opacity: 0.8;
+}
+
 .administrator-login:hover div {
     opacity: 1;
+}
+
+.login-part {
+    width: 30vw;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.login-part .input-fields, .register-part .input-fields {
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.login-part .input-fields input, .register-part .input-fields input {
+    width: 25vw;
+}
+
+.login-part .button-part, .register-part .button-part {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login-btn {
+    width: 10vw;
+    height: 5vh;
+    margin-bottom: 15px;
+}
+
+.login-btn:hover {
+    background-color: orange;
+}
+
+.login-part .button-part div p {
+    color: #faffff;
+}
+
+.login-part .button-part div p button {
+    background: none;
+    color: #00ff93;
+}
+
+.register-part .button-part button:nth-child(2) {
+    background: none;
+    color: #00ff93;
 }
 
 
