@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=KoHo:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+
+@media only screen and (max-width: 649px) {
+    .nav-bar {
+        background-color: #002433;
+        width: 100vw;
+        height: 10vh;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #faffff;
+        font-family: "Itim";
+    }
+    .nav-bar .left-part {
+        width: 85vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-title h2 {
+        font-size: 14px;
+    }
+    
+    .nav-bar .left-part .nav-buttons button {
+        width: 15vw;
+        background-color: #002433;
+        color: #fafafa;
+        font-size: 10px;
+    }
+    .nav-bar .search-part {
+        display: none;
+    }
+
+
+}
+
+@media only screen and (min-width: 649px) {
+    .nav-bar {
+        background-color: #002433;
+        width: 100vw;
+        height: 10vh;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #faffff;
+        font-family: "Itim";
+    }
+    .nav-bar .left-part {
+        width: 50vw;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    
+    .nav-bar .left-part .nav-buttons button {
+        width: 15vw;
+        background-color: #002433;
+        color: #fafafa;
+    }
+    .nav-bar .search-part {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 50vw;
+        height: 5vh;
+    }
+    .nav-bar .search-part input {
+        background-color: #002433;
+        border: 1px solid #819ba2;
+        border-radius: 5px;
+        color: #faffff;
+        letter-spacing: 00.1rem;
+    }
+    
+    .nav-bar .search-part input::placeholder {
+        color: #faffff;
+    }
+    .nav-bar .search-part button {
+        display: none;
+        width: 10vw;
+        background-color: #00ff93;
+        color: #002433;
+    }
+
+}
+.search-part:hover button {
+    display: block;
+}
+
+.search-part:hover input {
+    width: 25vw;
+}
+
+.search-part input:focus {
+    width: 25vw;
+}
