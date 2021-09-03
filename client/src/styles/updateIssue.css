@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=KoHo:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+
+@media only screen and (max-width: 649px) {
+    .update-issue {
+        position: absolute;
+        top: 1%;
+        left: 2%;
+        width: 42vw;
+        height: 70vh;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: #202529;
+        color: #fafafa;
+        border-radius: 5px;
+        z-index: 2;
+    }
+    .update-issue input {
+        width: 35vw;
+        height: 5vh;
+        background-color: #2b3034;
+        color: #faffff;
+        font-size: 8px;
+    }
+
+    .update-issue input::placeholder {
+        font-size: 8px;
+    }
+    .update-issue .update {
+        width: 30vw;
+        height: 5vh;
+        background-color: #00ff93;
+        color: #002433;
+        font-size: 10px;
+    }
+    
+    .update-issue .delete {
+        width: 30vw;
+        height: 5vh;
+        background-color: crimson;
+        color: #002433;
+        font-size: 10px;
+    }
+    
+    .update-issue .close {
+        background-color: #202529;
+        font-size: 14px;
+    }
+    .update-issue .back {
+        position: absolute;
+        left: 1%;
+        top: 1%;
+        padding: 5px;
+        border: none;
+        border-radius: 5px;
+        background-color: #202529;
+        color: orange;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .radio-wrapper {
+        display: inline-flex;
+        height: 5vh;
+        width: 30vw;
+        align-items: center;
+        justify-content: space-evenly;
+        border-radius: 5px;
+        padding: 3px 1px;
+    }
+    .radio-wrapper .option {
+        background: #002433;
+        height: 100%;
+        width: 15vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin: 0 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 0 3px;
+        transition: all 0.3s ease;
+    }
+
+    .radio-wrapper .option .dot {
+        background: none;
+        position: relative;
+        height: 5px;
+        width: 5px;
+        border-radius: 50%;
+    }
+    .radio-wrapper .option .dot::before {
+        position: absolute;
+        content: "";
+        top: 2px;
+        left: 2px;
+        width: 6px;
+        height: 6px;
+        background: none;
+        border-radius: 50%;
+        opacity: 0;
+        transform: scale(1.2);
+        transition: all 0.3s ease;
+    }
+    .radio-wrapper .option span{
+        font-size: 10px;
+        color: #808080;
+    }
+    .delete-issue {
+        position: absolute;
+        top: 25%;
+        left: 5%;
+        width: 40vw;
+        height: 40vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: #e4fdfd;
+        border-radius: 5px;
+        z-index: 2;
+    }
+
+    .delete-issue .question h2 {
+        color: #002433;
+        font-weight: bold;
+        font-size: 16px;
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: 649px) {
+    .update-issue {
+        position: absolute;
+        top: 1%;
+        left: 5vw;
+        width: 65vw;
+        height: 85vh;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: #202529;
+        color: #fafafa;
+        border-radius: 5px;
+        z-index: 2;
+    }
+    .update-issue input {
+        width: 45vw;
+        height: 7vh;
+        background-color: #2b3034;
+        color: #faffff;
+    }
+    .update-issue .update {
+        width: 45vw;
+        height: 8vh;
+        background-color: #00ff93;
+        color: #002433;
+    }
+    
+    .update-issue .delete {
+        width: 45vw;
+        height: 8vh;
+        background-color: crimson;
+        color: #002433;
+    }
+    
+    .update-issue .close {
+        background-color: #202529;
+        font-size: 24px;
+    }
+    .update-issue .back {
+        position: absolute;
+        left: 1%;
+        top: 1%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #202529;
+        color: orange;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .radio-wrapper {
+        display: inline-flex;
+        height: 10vh;
+        width: 30vw;
+        align-items: center;
+        justify-content: space-evenly;
+        border-radius: 5px;
+        padding: 10px 5px;
+    }
+    .radio-wrapper .option {
+        background: #002433;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin: 0 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 0 10px;
+        transition: all 0.3s ease;
+    }
+    .radio-wrapper .option .dot {
+        background: #faffff;
+        position: relative;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+    }
+    .radio-wrapper .option .dot::before {
+        position: absolute;
+        content: "";
+        top: 4px;
+        left: 4px;
+        width: 12px;
+        height: 12px;
+        background: #002433;
+        border-radius: 50%;
+        opacity: 0;
+        transform: scale(1.5);
+        transition: all 0.3s ease;
+    }
+    .radio-wrapper .option span{
+        font-size: 20px;
+        color: #808080;
+    }
+    .delete-issue {
+        position: absolute;
+        top: 25%;
+        left: 20vw;
+        width: 35vw;
+        height: 35vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: #e4fdfd;
+        border-radius: 5px;
+        animation: sizy 1s ease-in-out;
+        z-index: 2;
+    }
+
+    .delete-issue .question h2 {
+        color: #002433;
+        font-weight: bolder;
+    }
+}
+
+
+input[type="radio"] {
+    display: none;
+}
+
+#option-1:checked:checked ~ .option-1,
+#option-2:checked:checked ~ .option-2 {
+  border-color: #002433;
+  background: #002433;
+}
+
+#option-1:checked:checked ~ .option-1 .dot,
+#option-2:checked:checked ~ .option-2 .dot {
+  background: #faffff;
+}
+
+#option-1:checked:checked ~ .option-1 .dot::before,
+#option-2:checked:checked ~ .option-2 .dot::before{
+  opacity: 1;
+  transform: scale(1);
+}
+
+#option-1:checked:checked ~ .option-1 span,
+#option-2:checked:checked ~ .option-2 span{
+    color: #faffff;
+}
+
+
+.delete-issue .btn-wrapper {
+    width: 30vw;
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.delete-issue .btn-wrapper button {
+    width: 30vw;
+    height: 5vh;
+    color: #002433;
+}
+
+.delete-issue .btn-wrapper .surely-delete {
+    background-color: crimson;
+}
+
+.delete-issue .btn-wrapper .no {
+    background-color: #00ff93;
+}
