@@ -5,7 +5,6 @@
 /*<div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>*/
 /*<div>Icons made by <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">Eucalyp</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>*/
 
-
 * {
     padding: 0;
     margin: 0;
@@ -37,6 +36,149 @@ input::placeholder {
     font-family: "KoHo";
 }
 
+@media only screen and (max-width: 649px) {
+    .my-tickets-info {
+        position: relative;
+        height: 10vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .my-tickets-info h2 {
+        position: sticky;
+        top: 0;
+        height: 8vh;
+        padding: 5px;
+        background-color: orange;
+        border-radius: 5px;
+        color: #002433;
+        font-weight: bolder;
+        font-size: 10px;
+        text-align: center;
+    }
+    .login-wrapper {
+        width: 50vw;
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        border: 1px solid #fafafa;
+        border-radius: 5px;
+    }
+    .login-wrapper .default-part {
+        width: 40vw;
+        height: 20vh;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: center;
+    }
+    .login-wrapper .default-part button {
+        width: 32px;
+        height: 32px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        border-radius: 50%;
+    }
+    .login-part {
+        width: 35vw;
+        height: 35vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .login-part .input-fields, .register-part .input-fields {
+        height: 20vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .login-part .input-fields input, .register-part .input-fields input {
+        width: 35vw;
+        height: 5vh;
+        font-size: 10px;
+    }
+    .login-btn {
+        width: 20vw;
+        height: 5vh;
+        margin-bottom: 15px;
+    }
+}
+
+@media only screen and (min-width: 649px) {
+    .my-tickets-info {
+        position: relative;
+        height: 15vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .my-tickets-info h2 {
+        position: sticky;
+        top: 0;
+        height: 10vh;
+        padding: 10px;
+        background-color: orange;
+        border-radius: 5px;
+        color: #002433;
+        font-weight: bolder;
+    }
+    .login-wrapper {
+        width: 30vw;
+        height: 70vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        border: 1px solid #fafafa;
+        border-radius: 5px;
+    }
+    .login-wrapper .default-part {
+        width: 30vw;
+        height: 20vh;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .login-wrapper .default-part button {
+        width: 64px;
+        height: 64px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        border-radius: 50%;
+    }
+    .login-part {
+        width: 30vw;
+        height: 30vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .login-part .input-fields, .register-part .input-fields {
+        height: 20vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .login-part .input-fields input, .register-part .input-fields input {
+        width: 25vw;
+    }
+    .login-btn {
+        width: 10vw;
+        height: 5vh;
+        margin-bottom: 15px;
+    }
+}
+
 .container {
     width: 100vw;
     height: 100vh;
@@ -49,8 +191,6 @@ input::placeholder {
     height: 90vh;
     display: flex;
 }
-
-
 
 .loading {
     width: 100vw;
@@ -84,7 +224,6 @@ input::placeholder {
 p {
     display: inline-block;
 }
-
 
 .addvanced-search {
     position: absolute;
@@ -154,28 +293,6 @@ p {
     }
 }
 
-
-
-
-.my-tickets-info {
-    position: relative;
-    height: 15vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.my-tickets-info h2 {
-    position: sticky;
-    top: 0;
-    height: 10vh;
-    padding: 10px;
-    background-color: orange;
-    border-radius: 5px;
-    color: #002433;
-    font-weight: bolder;
-}
-
 .login-page {
     width: 100vw;
     height: 100vh;
@@ -186,38 +303,12 @@ p {
     align-items: center;
 }
 
-.login-wrapper {
-    width: 30vw;
-    height: 70vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    border: 1px solid #fafafa;
-    border-radius: 5px;
-}
-
-.login-wrapper .default-part {
-    width: 30vw;
-    height: 20vh;
-    display: flex;
-    justify-content: space-evenly;
-}
-
 .login-wrapper .default-part div:nth-child(1) button {
     background-image: url("../public/employees.png");
 }
 
 .login-wrapper .default-part div:nth-child(2) button {
     background-image: url("../public/manager.png");
-}
-
-.login-wrapper .default-part button {
-    width: 64px;
-    height: 64px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    border-radius: 50%;
 }
 
 .demo-login, .administrator-login {
@@ -252,38 +343,11 @@ p {
     opacity: 1;
 }
 
-.login-part {
-    width: 30vw;
-    height: 30vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-.login-part .input-fields, .register-part .input-fields {
-    height: 20vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-.login-part .input-fields input, .register-part .input-fields input {
-    width: 25vw;
-}
-
 .login-part .button-part, .register-part .button-part {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-}
-
-.login-btn {
-    width: 10vw;
-    height: 5vh;
-    margin-bottom: 15px;
 }
 
 .login-btn:hover {
@@ -292,6 +356,7 @@ p {
 
 .login-part .button-part div p {
     color: #faffff;
+    text-align: center;
 }
 
 .login-part .button-part div p button {
@@ -303,9 +368,6 @@ p {
     background: none;
     color: #00ff93;
 }
-
-
-
 
 ::-webkit-scrollbar {
     width: 15px;
