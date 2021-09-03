@@ -53,66 +53,7 @@ input::placeholder {
     display: flex;
 }
 
-.select-project {
-    background-image: url("../public/Vorderrhein.png");
-    width: 25vw;
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    border-right: 3px solid #002433;
-    
-}
 
-.select-project .button-part {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 25vw;
-    height: 10vh;
-
-}
-
-.select-project .list-part {
-    height: 75vh;
-    overflow: auto;
-}
-
-.add-p-btn {
-    height: 10vh;
-    padding: 16px;
-    margin: 0px 5px;
-    background-color: #00ff93;
-    color: #002433;
-    font-family: "KoHo";
-    white-space:normal;
-    overflow: hidden;
-}
-
-.u-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-}
-
-.select-p-btn {
-    background-color: #002433;
-    width: 22vw;
-    min-width: 100%;
-    margin-bottom: 1px;
-    padding: 7px;
-    border-radius: 3px;
-    color: #00ff95d8;
-    font-weight: bold;
-    font-family: "KoHo";
-    font-size: 14px;
-    letter-spacing: 0.1rem;
-    overflow: hidden;
-    
-}
 
 .info-part {
     background-image: url("../public/Vorderrhein.png");
