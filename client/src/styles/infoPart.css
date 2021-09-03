@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=KoHo:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+
+@media only screen and (max-width: 649px) {
+    .info-part {
+        background-image: url("../public/Vorderrhein.png");
+        background-size: cover;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 45vw;
+        height: 90vh;
+        overflow: hidden;
+    }
+    .add-issue-btn .add-btn {
+        width: 35vw;
+        height: 10vh;
+        padding: 6px;
+        margin: 10px 5px;
+        background-color: orange;
+        color: #002433;
+        font-size: 10px;
+    }
+    .issues-list {
+        position: relative;
+        width: 45vw;
+        height: 90vh;
+        padding: 3px;
+        margin-left: 3px;
+        margin-right: 1px;
+        border-radius: 2px;
+        overflow: auto;
+    }
+    .issues-list ul {
+        list-style: none;
+        padding: 10px;
+        height: 75vh;
+    }
+    
+    .issues-list ul li {
+        position: relative;
+        width: 30vw;
+        height: 5vh;
+        margin: 10px 0;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: #00ff93;
+        border-radius: 3px;
+        font-size: 10px;
+    }
+    
+    .issues-list ul li div {
+        display: inline-block;
+        width: 10vw;
+        height: 5vh;
+        margin: 3px 5px;
+        padding: 3vh 5px 0 5px;
+        overflow: hidden;
+        font-size: large;
+        white-space: nowrap;
+        text-align: center;
+        padding-top: 3vh;
+        font-size: 10px;
+    }
+    
+    .issues-list ul li button {
+        height: 5vh;
+        width: 5vw;
+        border-right: 5px solid #00ff93;
+        background-color: #00ff93;
+        border-radius: 0 3px 3px 0;
+        color: #002433;
+        font-size: 8px;
+    }
+    
+    .issues-list ul .row {
+        position: sticky;
+        top: 0;
+        height: 5vh;
+        color: #002433;
+        font-weight: bolder;
+        font-size: 8px;
+        z-index: 1;
+    }
+    .add-project {
+        position: absolute;
+        top: 25%;
+        left: 5%;
+        width: 35vw;
+        height: 25vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        background-color: #e4fdfd;
+        border-radius: 5px;
+        z-index: 2;
+    }
+    .add-project input {
+        width: 20vw;
+        height: 5vh;
+        margin: auto;
+        margin-top: 35px;
+        background-color: #002433;
+        color: #faffff;
+        font-size: 10px;
+    }
+    .add-project input::placeholder {
+        font-size: 8px;
+    }
+    .add-project .add-btn {
+        width: 25vw;
+        height: 5vh;
+        margin: auto;
+        padding: 6px;
+        background-color: #00ff93;
+        color: #002433;
+        font-size: 10px;
+    }
+    .add-issue {
+        position: absolute;
+        top: 10%;
+        left: 10%;
+        width: 35vw;
+        height: 70vh;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: #e4fdfd;
+        border-radius: 5px;
+        z-index: 2;
+    }
+    .add-issue input {
+        width: 30vw;
+        height: 5vh;
+        padding: 3px;
+        background-color: #002433;
+        color: #faffff;
+        font-size: 10px;
+    }
+    .add-issue input::placeholder {
+        font-size: 10px;
+    }
+    .add-issue .submit-issue {
+        width: 25vw;
+        height: 5vh;
+        border: none;
+        border-radius: 5px;
+        background-color: #00ff93;
+        font-size: 10px;
+    }
+}
+
+@media only screen and (min-width: 649px) {
+    .info-part {
+        background-image: url("../public/Vorderrhein.png");
+        background-size: cover;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 75vw;
+        height: 90vh;
+        overflow: hidden;
+    }
+    .issues-list {
+        position: relative;
+        width: 75vw;
+        height: 90vh;
+        padding: 3px;
+        margin-left: 3px;
+        margin-right: 1px;
+        border-radius: 2px;
+        overflow: auto;
+    }
+    .add-issue-btn .add-btn {
+        width: 25vw;
+        height: 10vh;
+        padding: 16px;
+        margin: 10px 5px;
+        background-color: orange;
+        color: #002433;
+    }
+    .issues-list ul {
+        list-style: none;
+        padding: 10px;
+        height: 75vh;
+    }
+    
+    .issues-list ul li {
+        position: relative;
+        height: 10vh;
+        margin: 10px 0;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: #00ff93;
+        border-radius: 3px;
+    }
+    
+    .issues-list ul li div {
+        display: inline-block;
+        width: 15vw;
+        height: 10vh;
+        margin: 3px 5px;
+        padding: 3vh 5px 0 5px;
+        overflow: hidden;
+        font-size: large;
+        white-space: nowrap;
+        text-align: center;
+        padding-top: 3vh;
+    }
+    
+    .issues-list ul li button {
+        height: 10vh;
+        width: 10vw;
+        border-right: 5px solid #00ff93;
+        background-color: #00ff93;
+        border-radius: 0 3px 3px 0;
+        color: #002433;
+    }
+    
+    .issues-list ul .row {
+        position: sticky;
+        top: 0;
+        height: 10vh;
+        color: #002433;
+        font-weight: bolder;
+        font-size: large;
+        z-index: 1;
+    }
+    .add-project {
+        position: absolute;
+        top: 25%;
+        left: 20vw;
+        width: 35vw;
+        height: 35vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        background-color: #e4fdfd;
+        border-radius: 5px;
+        animation: sizy 1s ease-in-out;
+        z-index: 2;
+    }
+    .add-project input {
+        width: 30vw;
+        height: 10vh;
+        margin: auto;
+        margin-top: 50px;
+        background-color: #002433;
+        color: #faffff;
+    }
+    .add-project .add-btn {
+        width: 25vw;
+        margin: auto;
+        padding: 16px;
+        background-color: #00ff93;
+        color: #002433;
+    }
+    .add-issue {
+        position: absolute;
+        top: 10%;
+        left: 10vw;
+        width: 55vw;
+        height: 80vh;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: #e4fdfd;
+        border-radius: 5px;
+        z-index: 2;
+        animation: big-sizy 1s ease-in-out;
+    }
+    .add-issue input {
+        width: 45vw;
+        height: 7vh;
+        padding: 5px;
+        background-color: #002433;
+        color: #faffff;
+    }
+    .add-issue .submit-issue {
+        width: 45vw;
+        height: 10vh;
+        border: none;
+        border-radius: 5px;
+        background-color: #00ff93;
+    }
+}
+
+.add-project .close, .add-issue .close, .details-btn-wrapper .close, .update-issue .close, .addvanced-search .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0px 7px;
+    border-radius: 0 3px 0 3px;
+    background-color: inherit;
+    color: orange;
+    font-size: large;
+    font-weight: bold;
+}
+
+.row button {
+    color: #002433;
+    font-weight: bolder;
+    font-size: large;
+    cursor: text;
+}
+
+@keyframes sizy {
+    0%,
+    100% {
+        top: 25%;
+        left: 20vw;
+        width: 35vw;
+        height: 35vh;
+    }
+    50% {
+        top: 20%;
+        left: 15vw;
+        width: 45vw;
+        height: 45vh;
+    }
+}
+
+@keyframes big-sizy {
+    0%, 100% {
+        top: 10%;
+        left: 10vw;
+        width: 55vw;
+        height: 80vh;
+    }
+
+    50% {
+        top: 5%;
+        left: 5vw;
+        width: 65vw;
+        height: 85vh;
+    }
+}
