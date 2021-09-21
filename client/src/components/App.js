@@ -523,11 +523,11 @@ const App = () => {
                         <Navbar 
                             data={{
                                 user: demoUser,
-                                handleChange: handleChange,
-                                handleClick: handleClick,
-                                searchInput: searchInput,
-                                isSearchActive: isSearchActive,
-                                isLog: isLog
+                                handleChange,
+                                handleClick,
+                                searchInput,
+                                isSearchActive,
+                                isLog
                             }}
                         />
 
@@ -535,8 +535,8 @@ const App = () => {
 
                             <Select
                                 data={{
-                                    handleClick: handleClick,
-                                    projects: projects
+                                    handleClick,
+                                    projects
                                 }}
                             />
 
@@ -546,9 +546,9 @@ const App = () => {
 
                                         <AddProject
                                             data={{
-                                                handleClick: handleClick,
-                                                handleChange: handleChange,
-                                                newProjectInput: newProjectInput
+                                                handleClick,
+                                                handleChange,
+                                                newProjectInput
                                             }}
                                         />
                                     )
@@ -557,8 +557,8 @@ const App = () => {
                                     selectedProject && !isLog && (
                                         <AddIssBtn
                                             data={{
-                                                handleClick: handleClick,
-                                                selectedProject: selectedProject
+                                                handleClick,
+                                                selectedProject
                                             }}
                                         />
                                     )
@@ -567,13 +567,13 @@ const App = () => {
                                     addIssue && selectedProject && (
                                         <AddIssue
                                             data={{
-                                                handleClick: handleClick,
-                                                handleChange: handleChange,
-                                                newIssueTitleInput: newIssueTitleInput,
-                                                newIssueTextInput: newIssueTextInput,
-                                                newIssueCreatedInput: newIssueCreatedInput,
-                                                newIssueAssignedInput: newIssueAssignedInput,
-                                                newIssueStatusInput: newIssueStatusInput
+                                                handleClick,
+                                                handleChange,
+                                                newIssueTitleInput,
+                                                newIssueTextInput,
+                                                newIssueCreatedInput,
+                                                newIssueAssignedInput,
+                                                newIssueStatusInput
                                             }}
                                         />
                                     )
@@ -582,14 +582,14 @@ const App = () => {
                                     updateIssue && (
                                         <UpdateIssue
                                             data={{
-                                                handleClick: handleClick,
-                                                handleChange: handleChange,
-                                                openOrClose: openOrClose,
-                                                newIssueTitleInput: newIssueTitleInput,
-                                                newIssueTextInput: newIssueTextInput,
-                                                newIssueCreatedInput: newIssueCreatedInput,
-                                                newIssueAssignedInput: newIssueAssignedInput,
-                                                newIssueStatusInput: newIssueStatusInput
+                                                handleClick,
+                                                handleChange,
+                                                openOrClose,
+                                                newIssueTitleInput,
+                                                newIssueTextInput,
+                                                newIssueCreatedInput,
+                                                newIssueAssignedInput,
+                                                newIssueStatusInput
                                             }}
                                         />
                                     )
@@ -598,7 +598,7 @@ const App = () => {
                                     deleteIssue && (
                                         <DeleteIssue
                                             data={{
-                                                handleClick: handleClick
+                                                handleClick
                                             }}
                                         />
                                     )
@@ -607,16 +607,16 @@ const App = () => {
                                     advancedSearch && (
                                         <AdvancedSearch
                                             data={{
-                                                handleChange: handleChange,
-                                                handleClick: handleClick,
-                                                openOrClose: openOrClose,
-                                                projectInput: projectInput,
-                                                idInput: idInput,
-                                                newIssueTitleInput: newIssueTitleInput,
-                                                newIssueTextInput: newIssueTextInput,
-                                                newIssueCreatedInput: newIssueCreatedInput,
-                                                newIssueAssignedInput: newIssueAssignedInput,
-                                                newIssueStatusInput: newIssueStatusInput
+                                                handleChange,
+                                                handleClick,
+                                                openOrClose,
+                                                projectInput,
+                                                idInput,
+                                                newIssueTitleInput,
+                                                newIssueTextInput,
+                                                newIssueCreatedInput,
+                                                newIssueAssignedInput,
+                                                newIssueStatusInput
                                             }}
                                         />
                                     )
@@ -625,11 +625,11 @@ const App = () => {
                                     moreDetails && (
                                         <MoreDetails
                                             data={{
-                                                handleClick: handleClick,
-                                                handleCopy: handleCopy,
-                                                selectedIssue: selectedIssue,
-                                                copied: copied,
-                                                isLog: isLog
+                                                handleClick,
+                                                handleCopy,
+                                                selectedIssue,
+                                                copied,
+                                                isLog
                                             }}
                                         />
                                     )
@@ -640,10 +640,10 @@ const App = () => {
 
                                         <Log
                                             data={{
-                                                issuesList: issuesList,
-                                                selectedProject: selectedProject,
+                                                issuesList,
+                                                selectedProject,
                                                 myProjects: projects,
-                                                handleClick: handleClick
+                                                handleClick
                                             }}
                                         />
 
@@ -651,9 +651,9 @@ const App = () => {
 
                                         <List
                                             data={{
-                                                issuesList: issuesList,
-                                                selectedProject: selectedProject,
-                                                handleClick: handleClick
+                                                issuesList,
+                                                selectedProject,
+                                                handleClick
                                             }}
                                         />
                                     )
@@ -666,13 +666,13 @@ const App = () => {
                 ) : !isLoading && !isLoggedIn ? (
                     <LoginPage
                         data={{
-                            handleClick: handleClick,
-                            handleChange: handleChange,
-                            loginUserInput: loginUserInput,
-                            loginPassInput: loginPassInput,
-                            regUserInput: regUserInput,
-                            regPassInput: regPassInput,
-                            isRegMode: isRegMode
+                            handleClick,
+                            handleChange,
+                            loginUserInput,
+                            loginPassInput,
+                            regUserInput,
+                            regPassInput,
+                            isRegMode
                         }}
                     />
                 ) : (
