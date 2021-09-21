@@ -1,6 +1,6 @@
-const issueUpdateDelFunc = (params) => {
+const issueUpdateDelFunc = (params, id) => {
 
-    params.setIssueId(params.id)
+    params.setIssueId(id)
     params.setUpdateIssue(true)
     params.setAddProject(false)
     params.setAddIssue(false)

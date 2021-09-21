@@ -15,6 +15,8 @@ import simpleSearchFunc from "../logic/simpleSearchFunc"
 import advancedSearchFunc from "../logic/advancedSearchFunc"
 import myTicketsFunc from "../logic/myTicketsFunc"
 
+import parameters from "../parameters/parameters"
+
 import List from "./List"
 import Select from "./Select"
 import AddProject from "./AddProject"
@@ -36,7 +38,6 @@ const App = () => {
     const [selectedProject, setSelectedProject] = useState("")
     const [issuesList, setIssuesList] = useState([])
     const [selectedIssue, setSelectedIssue] = useState({})
-
 
     const [newProjectInput, setNewProjectInput] = useState("")
     const [searchInput, setSearchInput] = useState("")
@@ -215,130 +216,42 @@ const App = () => {
                 !moreDetails && moreDetailsFunc(id, setIsLoading, setMoreDetails, issuesList, setSelectedIssue, inputRemover)
                 break
             case "close":
-                let closeFuncparams = {
-                    setSelectedIssue,
-                    setAddProject,
-                    setNewProjectInput,
-                    setAddIssue,
-                    setUpdateIssue,
-                    setDeleteIssue,
-                    setAdvancedSearch,
-                    setOpenOrClose,
-                    setSearchInput,
-                    setProjectInput,
-                    setIdInput,
-                    inputRemover,
-                    setIsLog
-                }
+
+                let closeFuncparams = parameters(variablesToExport, "closeFuncparams")
                 closeFunc(closeFuncparams)
                 break
             case "add-project":
-                let addProjectFuncparams = {
-                    setAddProject,
-                    setAddIssue,
-                    setUpdateIssue,
-                    inputRemover,
-                    setIsLog
-                }
+
+                let addProjectFuncparams = parameters(variablesToExport, "addProjectFuncparams")
                 addProjectFunc(addProjectFuncparams)
                 break
             case "submit-new-project":
                 setIsLog(false)
-                let submitNProjectFuncparams = {
-                    projects,
-                    newProjectInput,
-                    demoUser,
-                    BASE_URL,
-                    axios,
-                    swal,
-                    setIsLoading,
-                    setSelectedProject,
-                    setIssuesList,
-                    setSelectedIssue,
-                    inputRemover,
-                    setCount,
-                    setNewProjectInput,
-                    setAddProject
-                }
+
+                let submitNProjectFuncparams = parameters(variablesToExport, "submitNProjectFuncparams")
                 submitNProjectFunc(submitNProjectFuncparams)
                 break
             case "add-issue-button":
-                let addIssueFuncparams = {
-                    setAddIssue,
-                    setUpdateIssue,
-                    setAddProject,
-                    inputRemover,
-                    setIsLog
-                }
+                let addIssueFuncparams = parameters(variablesToExport, "addIssueFuncparams")
                 addIssueFunc(addIssueFuncparams)
                 break
             case "submit-issue":
-                let submitIssueFuncparams = {
-                    newIssueTitleInput,
-                    newIssueTextInput,
-                    newIssueCreatedInput,
-                    newIssueAssignedInput,
-                    newIssueStatusInput,
-                    selectedProject,
-                    BASE_URL,
-                    axios,
-                    swal,
-                    setIsLoading,
-                    getList,
-                    inputRemover,
-                    setAddIssue
-                }
+                let submitIssueFuncparams = parameters(variablesToExport, "submitIssueFuncparams")
                 submitIssueFunc(submitIssueFuncparams)
                 break
             case "issue-update-del":
-                let issueUpdateDelFuncparams = {
-                    id,
-                    setIssueId,
-                    setUpdateIssue,
-                    setAddProject,
-                    setAddIssue,
-                    inputRemover
-                }
-                issueUpdateDelFunc(issueUpdateDelFuncparams)
+                let issueUpdateDelFuncparams = parameters(variablesToExport, "issueUpdateDelFuncparams")
+                issueUpdateDelFunc(issueUpdateDelFuncparams, id)
                 break
             case "update":
-                let updateFuncparams = {
-                    issueId,
-                    newIssueTitleInput,
-                    newIssueTextInput,
-                    newIssueCreatedInput,
-                    newIssueAssignedInput,
-                    newIssueStatusInput,
-                    openOrClose,
-                    selectedProject,
-                    BASE_URL,
-                    axios,
-                    swal,
-                    setIsLoading,
-                    getList,
-                    setUpdateIssue,
-                    setOpenOrClose,
-                    inputRemover
-                }
+                let updateFuncparams = parameters(variablesToExport, "updateFuncparams")
                 updateFunc(updateFuncparams)
                 break
             case "delete":
                 setDeleteIssue(true)
                 break
             case "surely-delete":
-                let surelyDeleteFuncparams = {
-                    issueId,
-                    selectedProject,
-                    BASE_URL,
-                    axios,
-                    swal,
-                    setIsLoading,
-                    getList,
-                    setUpdateIssue,
-                    setDeleteIssue,
-                    inputRemover,
-                    setIsLog
-                }
+                let surelyDeleteFuncparams = parameters(variablesToExport, "surelyDeleteFuncparams")
                 surelyDeleteFunc(surelyDeleteFuncparams)
                 break
             case "back-details":
@@ -350,48 +263,14 @@ const App = () => {
                 setDeleteIssue(false)
                 break
             case "go":
-                let simpleSearchFuncparams = {
-                    searchInput,
-                    BASE_URL,
-                    axios,
-                    swal,
-                    setIsLoading,
-                    setIssuesList,
-                    setSelectedProject,
-                    setSearchInput,
-                    setMoreDetails,
-                    setIsLog
-                }
-
+                let simpleSearchFuncparams = parameters(variablesToExport, "simpleSearchFuncparams")
                 simpleSearchFunc(simpleSearchFuncparams)
                 break
             case "advanced-search":
                 setAdvancedSearch(true)
                 break
             case "avnaced-go":
-                let advancedSearchFuncparams = {
-                    projectInput,
-                    newIssueTitleInput,
-                    newIssueTextInput,
-                    newIssueCreatedInput,
-                    newIssueAssignedInput,
-                    newIssueStatusInput,
-                    openOrClose,
-                    BASE_URL,
-                    idInput,
-                    axios,
-                    swal,
-                    setIsLoading,
-                    setSearchInput,
-                    setSelectedProject,
-                    setIssuesList,
-                    setAdvancedSearch,
-                    setIdInput,
-                    setProjectInput,
-                    setOpenOrClose,
-                    inputRemover,
-                    setIsLog
-                }
+                let advancedSearchFuncparams = parameters(variablesToExport, "advancedSearchFuncparams")
                 advancedSearchFunc(advancedSearchFuncparams)
                 break
             case "search":
@@ -403,23 +282,9 @@ const App = () => {
             case "my-tickets":
                 setIsLog(prevIsLog => !prevIsLog)
 
-                let params = {
-                    setSelectedIssue,
-                    setAddProject,
-                    setNewProjectInput,
-                    setAddIssue,
-                    setUpdateIssue,
-                    setDeleteIssue,
-                    setAdvancedSearch,
-                    setOpenOrClose,
-                    setSearchInput,
-                    setProjectInput,
-                    setIdInput,
-                    inputRemover,
-                    setIsLog
-                }
-
+                let params = parameters(variablesToExport, "closeFuncparams")
                 closeFunc(params)
+
                 myTicketsFunc(axios, BASE_URL, setIssuesList, id, setIsLoading)
                 break
             case "demo-login":
@@ -511,6 +376,80 @@ const App = () => {
     }
 
     clearTimeout(timerId)
+
+    const variablesToExport = {
+        setIsRegMode,
+        setRegPassInput,
+        setRegUserInput,
+        setLoginPassInput,
+        setLoginUserInput,
+        setDemoUser,
+        setIsLoggedIn,
+        setCount,
+        setCopied,
+        setIssueId,
+        setOpenOrClose,
+        setAdvancedSearch,
+        setDeleteIssue,
+        setUpdateIssue,
+        setAddIssue,
+        setAddProject,
+        setMoreDetails,
+        setIsLog,
+        setIsSearchActive,
+        setIsLoading,
+        setProjectInput,
+        setIdInput,
+        setNewIssueStatusInput,
+        setNewIssueAssignedInput,
+        setNewIssueCreatedInput,
+        setNewIssueTextInput,
+        setNewIssueTitleInput,
+        setSearchInput,
+        setNewProjectInput,
+        setSelectedIssue,
+        setIssuesList,
+        setSelectedProject,
+        setProjects,
+        projects,
+        selectedProject,
+        issuesList,
+        selectedIssue,
+        newProjectInput,
+        searchInput,
+        newIssueTitleInput,
+        newIssueTextInput,
+        newIssueCreatedInput,
+        newIssueAssignedInput,
+        newIssueStatusInput,
+        idInput,
+        projectInput,
+        isLoading,
+        isSearchActive,
+        isLog,
+        isRegMode,
+        regPassInput,
+        regUserInput,
+        loginPassInput,
+        loginUserInput,
+        demoUser,
+        isLoggedIn,
+        count,
+        copied,
+        issueId,
+        openOrClose,
+        advancedSearch,
+        deleteIssue,
+        updateIssue,
+        addIssue,
+        addProject,
+        moreDetails,
+        BASE_URL,
+        axios,
+        swal,
+        inputRemover,
+        getList
+    }
 
     return (
         <div>
