@@ -1,22 +1,22 @@
-const updateFunc = (setIsLoading, issueId, newIssueTitleInput, newIssueTextInput, newIssueCreatedInput, newIssueAssignedInput, newIssueStatusInput, openOrClose, axios, BASE_URL, selectedProject, swal, getList, setUpdateIssue, setOpenOrClose, inputRemover) => {
+const updateFunc = (params) => {
 
-    setIsLoading(true)
+    params.setIsLoading(true)
 
     const sendingData = {
-        _id: issueId,
-        issue_title: newIssueTitleInput, 
-        issue_text: newIssueTextInput, 
-        created_by: newIssueCreatedInput, 
-        assigned_to: newIssueAssignedInput, 
-        status_text: newIssueStatusInput,
-        open: openOrClose==="open" ? "true" : "false"
+        _id: params.issueId,
+        issue_title: params.newIssueTitleInput, 
+        issue_text: params.newIssueTextInput, 
+        created_by: params.newIssueCreatedInput, 
+        assigned_to: params.newIssueAssignedInput, 
+        status_text: params.newIssueStatusInput,
+        open: params.openOrClose==="open" ? "true" : "false"
     }
 
-    axios.put(`${BASE_URL}/api/issues/${selectedProject}`, sendingData).then(response => {
+    params.axios.put(`${params.BASE_URL}/api/issues/${params.selectedProject}`, sendingData).then(response => {
         const {data} = response
 
         if (data.hasOwnProperty("error")) {
-            swal.fire({
+            params.swal.fire({
                 icon: "error",
                 title: "Error!",
                 text: `${data.error}`
@@ -24,17 +24,17 @@ const updateFunc = (setIsLoading, issueId, newIssueTitleInput, newIssueTextInput
 
         } else {
 
-            swal.fire(`${data.result}`, `issue with id ${issueId} for project "${selectedProject}" updated successfully`, "success").then(
+            params.swal.fire(`${data.result}`, `issue with id ${params.issueId} for project "${params.selectedProject}" updated successfully`, "success").then(
                 (result) => {
                   if (result.isConfirmed || result.isDismissed) {
-                    getList(selectedProject)
+                    params.getList(params.selectedProject)
                   }
                 }
             )
         }
-        setUpdateIssue(false)
-        setOpenOrClose("open")
-        inputRemover(true, true, true, true)
+        params.setUpdateIssue(false)
+        params.setOpenOrClose("open")
+        params.inputRemover(true, true, true, true)
     })
 }
 

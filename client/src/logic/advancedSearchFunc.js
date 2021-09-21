@@ -1,21 +1,21 @@
-const advancedSearchFunc = (setIsLoading, setSearchInput, projectInput, newIssueTitleInput, newIssueTextInput, newIssueCreatedInput, newIssueAssignedInput, newIssueStatusInput, openOrClose, BASE_URL, idInput, axios, swal, setSelectedProject, setIssuesList, setAdvancedSearch, setIdInput, setProjectInput, setOpenOrClose, inputRemover, setIsLog) => {
+const advancedSearchFunc = (params) => {
 
-    setIsLoading(true)
-    setSearchInput("")
-    setIsLog(false)
+    params.setIsLoading(true)
+    params.setSearchInput("")
+    params.setIsLog(false)
 
-    const searchedProject = projectInput || "empty"
-    const title = newIssueTitleInput || ""
-    const text = newIssueTextInput || ""
-    const created = newIssueCreatedInput || ""
-    const assigned = newIssueAssignedInput || ""
-    const status = newIssueStatusInput || ""
-    const open = openOrClose === "open" ? "true" : "false"
+    const searchedProject = params.projectInput || "empty"
+    const title = params.newIssueTitleInput || ""
+    const text = params.newIssueTextInput || ""
+    const created = params.newIssueCreatedInput || ""
+    const assigned = params.newIssueAssignedInput || ""
+    const status = params.newIssueStatusInput || ""
+    const open = params.openOrClose === "open" ? "true" : "false"
 
-    let URL = `${BASE_URL}/api/issues/${searchedProject}?open=${open}`
+    let URL = `${params.BASE_URL}/api/issues/${searchedProject}?open=${open}`
 
-    if (idInput) {
-        URL += `&_id=${idInput}`
+    if (params.idInput) {
+        URL += `&_id=${params.idInput}`
     } else if (title) {
         URL += `&issue_title=${title}`
     } else if (text) {
@@ -28,12 +28,12 @@ const advancedSearchFunc = (setIsLoading, setSearchInput, projectInput, newIssue
         URL += `&status_text=${status}`
     }
 
-    axios.get(URL).then(response => {
+    params.axios.get(URL).then(response => {
 
         const {data} = response
 
         if (data.hasOwnProperty("error")) {
-            swal.fire({
+            params.swal.fire({
                 icon: "error",
                 title: "Error!",
                 text: `${data.error}`
@@ -41,22 +41,22 @@ const advancedSearchFunc = (setIsLoading, setSearchInput, projectInput, newIssue
 
         } else {
             if (data.length) {
-                setSelectedProject(projectInput)
-                setIssuesList(data)
+                params.setSelectedProject(params.projectInput)
+                params.setIssuesList(data)
 
             } else {
-                swal.fire({
+                params.swal.fire({
                     icon: "error",
                     title: "Error!",
                     text: `Item not found!`
                 })
             }
         }
-        setAdvancedSearch(false)
-        setIdInput("")
-        setProjectInput("")
-        setOpenOrClose("open") 
-        inputRemover(true, true, false, false)
+        params.setAdvancedSearch(false)
+        params.setIdInput("")
+        params.setProjectInput("")
+        params.setOpenOrClose("open") 
+        params.inputRemover(true, true, false, false)
     })
 }
 

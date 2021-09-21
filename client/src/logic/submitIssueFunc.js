@@ -1,21 +1,21 @@
-const submitIssueFunc = (setIsLoading, newIssueTitleInput, newIssueTextInput, newIssueCreatedInput, newIssueAssignedInput, newIssueStatusInput, axios, BASE_URL, selectedProject, swal, getList, inputRemover, setAddIssue) => {
+const submitIssueFunc = (params) => {
 
-    setIsLoading(true)
+    params.setIsLoading(true)
 
     const sendingData = {
 
-        issue_title: newIssueTitleInput, 
-        issue_text: newIssueTextInput, 
-        created_by: newIssueCreatedInput, 
-        assigned_to: newIssueAssignedInput, 
-        status_text: newIssueStatusInput
+        issue_title: params.newIssueTitleInput, 
+        issue_text: params.newIssueTextInput, 
+        created_by: params.newIssueCreatedInput, 
+        assigned_to: params.newIssueAssignedInput, 
+        status_text: params.newIssueStatusInput
     }
 
-    axios.post(`${BASE_URL}/api/issues/${selectedProject}`, sendingData).then(response => {
+    params.axios.post(`${params.BASE_URL}/api/issues/${params.selectedProject}`, sendingData).then(response => {
         const {data} = response
         
         if (data.hasOwnProperty("error")) {
-            swal.fire({
+            params.swal.fire({
                 icon: "error",
                 title: "Error!",
                 text: `${data.error}`
@@ -23,16 +23,16 @@ const submitIssueFunc = (setIsLoading, newIssueTitleInput, newIssueTextInput, ne
 
         } else {
 
-            swal.fire(`${data.issue_title}`, `New issue for project "${data.project}" submitted successfully`, "success").then(
+            params.swal.fire(`${data.issue_title}`, `New issue for project "${data.project}" submitted successfully`, "success").then(
                 (result) => {
                   if (result.isConfirmed || result.isDismissed) {
-                    getList(selectedProject)
+                    params.getList(params.selectedProject)
                   }
                 }
             )
         }
-        inputRemover(true, true, false, true)
-        setAddIssue(false)
+        params.inputRemover(true, true, false, true)
+        params.setAddIssue(false)
     })
 }
 

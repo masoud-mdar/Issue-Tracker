@@ -1,17 +1,17 @@
-const surelyDeleteFunc = (setIsLoading, issueId, axios, BASE_URL, selectedProject, swal, getList, setUpdateIssue, setDeleteIssue, inputRemover, setIsLog) => {
+const surelyDeleteFunc = (params) => {
 
-    setIsLoading(true)
+    params.setIsLoading(true)
 
     const sendingData = {
-        _id: issueId
+        _id: params.issueId
     }
 
-    axios.delete(`${BASE_URL}/api/issues/${selectedProject}`, {data: sendingData}).then(response => {
+    params.axios.delete(`${params.BASE_URL}/api/issues/${params.selectedProject}`, {data: sendingData}).then(response => {
 
         const {data} = response
 
         if (data.hasOwnProperty("error")) {
-            swal.fire({
+            params.swal.fire({
                 icon: "error",
                 title: "Error!",
                 text: `${data.error}`
@@ -19,18 +19,18 @@ const surelyDeleteFunc = (setIsLoading, issueId, axios, BASE_URL, selectedProjec
 
         } else {
 
-            swal.fire(`${data.result}`, `issue with id ${issueId} for project "${selectedProject}" deleted successfully`, "success").then(
+            params.swal.fire(`${data.result}`, `issue with id ${params.issueId} for project "${params.selectedProject}" deleted successfully`, "success").then(
                 (result) => {
                   if (result.isConfirmed || result.isDismissed) {
-                    getList(selectedProject)
+                    params.getList(params.selectedProject)
                   }
                 }
             )
         }
-        setUpdateIssue(false)
-        setDeleteIssue(false)
-        setIsLog(false)
-        inputRemover(true, true, true, true)
+        params.setUpdateIssue(false)
+        params.setDeleteIssue(false)
+        params.setIsLog(false)
+        params.inputRemover(true, true, true, true)
     })
 }
 

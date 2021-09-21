@@ -37,6 +37,7 @@ const App = () => {
     const [issuesList, setIssuesList] = useState([])
     const [selectedIssue, setSelectedIssue] = useState({})
 
+
     const [newProjectInput, setNewProjectInput] = useState("")
     const [searchInput, setSearchInput] = useState("")
 
@@ -214,32 +215,131 @@ const App = () => {
                 !moreDetails && moreDetailsFunc(id, setIsLoading, setMoreDetails, issuesList, setSelectedIssue, inputRemover)
                 break
             case "close":
-                closeFunc(setSelectedIssue, setAddProject, setNewProjectInput, setAddIssue, setUpdateIssue, setDeleteIssue, setAdvancedSearch, setOpenOrClose, setSearchInput, setProjectInput, setIdInput, inputRemover, setIsLog)
+                let closeFuncparams = {
+                    setSelectedIssue,
+                    setAddProject,
+                    setNewProjectInput,
+                    setAddIssue,
+                    setUpdateIssue,
+                    setDeleteIssue,
+                    setAdvancedSearch,
+                    setOpenOrClose,
+                    setSearchInput,
+                    setProjectInput,
+                    setIdInput,
+                    inputRemover,
+                    setIsLog
+                }
+                closeFunc(closeFuncparams)
                 break
             case "add-project":
-                addProjectFunc(setAddProject, setAddIssue, setUpdateIssue, inputRemover, setIsLog)
+                let addProjectFuncparams = {
+                    setAddProject,
+                    setAddIssue,
+                    setUpdateIssue,
+                    inputRemover,
+                    setIsLog
+                }
+                addProjectFunc(addProjectFuncparams)
                 break
             case "submit-new-project":
                 setIsLog(false)
-                submitNProjectFunc(setIsLoading, setSelectedProject, setIssuesList, setSelectedIssue, inputRemover, projects, newProjectInput, axios, BASE_URL, demoUser, swal, setCount, setNewProjectInput, setAddProject)
+                let submitNProjectFuncparams = {
+                    projects,
+                    newProjectInput,
+                    demoUser,
+                    BASE_URL,
+                    axios,
+                    swal,
+                    setIsLoading,
+                    setSelectedProject,
+                    setIssuesList,
+                    setSelectedIssue,
+                    inputRemover,
+                    setCount,
+                    setNewProjectInput,
+                    setAddProject
+                }
+                submitNProjectFunc(submitNProjectFuncparams)
                 break
             case "add-issue-button":
-                addIssueFunc(setAddIssue, setUpdateIssue, setAddProject, inputRemover, setIsLog)
+                let addIssueFuncparams = {
+                    setAddIssue,
+                    setUpdateIssue,
+                    setAddProject,
+                    inputRemover,
+                    setIsLog
+                }
+                addIssueFunc(addIssueFuncparams)
                 break
             case "submit-issue":
-                submitIssueFunc(setIsLoading, newIssueTitleInput, newIssueTextInput, newIssueCreatedInput, newIssueAssignedInput, newIssueStatusInput, axios, BASE_URL, selectedProject, swal, getList, inputRemover, setAddIssue)
+                let submitIssueFuncparams = {
+                    newIssueTitleInput,
+                    newIssueTextInput,
+                    newIssueCreatedInput,
+                    newIssueAssignedInput,
+                    newIssueStatusInput,
+                    selectedProject,
+                    BASE_URL,
+                    axios,
+                    swal,
+                    setIsLoading,
+                    getList,
+                    inputRemover,
+                    setAddIssue
+                }
+                submitIssueFunc(submitIssueFuncparams)
                 break
             case "issue-update-del":
-                issueUpdateDelFunc(id, setIssueId, setUpdateIssue, setAddProject, setAddIssue, inputRemover)
+                let issueUpdateDelFuncparams = {
+                    id,
+                    setIssueId,
+                    setUpdateIssue,
+                    setAddProject,
+                    setAddIssue,
+                    inputRemover
+                }
+                issueUpdateDelFunc(issueUpdateDelFuncparams)
                 break
             case "update":
-                updateFunc(setIsLoading, issueId, newIssueTitleInput, newIssueTextInput, newIssueCreatedInput, newIssueAssignedInput, newIssueStatusInput, openOrClose, axios, BASE_URL, selectedProject, swal, getList, setUpdateIssue, setOpenOrClose, inputRemover)
+                let updateFuncparams = {
+                    issueId,
+                    newIssueTitleInput,
+                    newIssueTextInput,
+                    newIssueCreatedInput,
+                    newIssueAssignedInput,
+                    newIssueStatusInput,
+                    openOrClose,
+                    selectedProject,
+                    BASE_URL,
+                    axios,
+                    swal,
+                    setIsLoading,
+                    getList,
+                    setUpdateIssue,
+                    setOpenOrClose,
+                    inputRemover
+                }
+                updateFunc(updateFuncparams)
                 break
             case "delete":
                 setDeleteIssue(true)
                 break
             case "surely-delete":
-                surelyDeleteFunc(setIsLoading, issueId, axios, BASE_URL, selectedProject, swal, getList, setUpdateIssue, setDeleteIssue, inputRemover, setIsLog)
+                let surelyDeleteFuncparams = {
+                    issueId,
+                    selectedProject,
+                    BASE_URL,
+                    axios,
+                    swal,
+                    setIsLoading,
+                    getList,
+                    setUpdateIssue,
+                    setDeleteIssue,
+                    inputRemover,
+                    setIsLog
+                }
+                surelyDeleteFunc(surelyDeleteFuncparams)
                 break
             case "back-details":
                 setMoreDetails(true)
@@ -250,13 +350,49 @@ const App = () => {
                 setDeleteIssue(false)
                 break
             case "go":
-                simpleSearchFunc(setIsLoading, searchInput, axios, BASE_URL, setIssuesList, setSelectedProject, swal, setSearchInput, setMoreDetails, setIsLog)
+                let simpleSearchFuncparams = {
+                    searchInput,
+                    BASE_URL,
+                    axios,
+                    swal,
+                    setIsLoading,
+                    setIssuesList,
+                    setSelectedProject,
+                    setSearchInput,
+                    setMoreDetails,
+                    setIsLog
+                }
+
+                simpleSearchFunc(simpleSearchFuncparams)
                 break
             case "advanced-search":
                 setAdvancedSearch(true)
                 break
             case "avnaced-go":
-                advancedSearchFunc(setIsLoading, setSearchInput, projectInput, newIssueTitleInput, newIssueTextInput, newIssueCreatedInput, newIssueAssignedInput, newIssueStatusInput, openOrClose, BASE_URL, idInput, axios, swal, setSelectedProject, setIssuesList, setAdvancedSearch, setIdInput, setProjectInput, setOpenOrClose, inputRemover, setIsLog)
+                let advancedSearchFuncparams = {
+                    projectInput,
+                    newIssueTitleInput,
+                    newIssueTextInput,
+                    newIssueCreatedInput,
+                    newIssueAssignedInput,
+                    newIssueStatusInput,
+                    openOrClose,
+                    BASE_URL,
+                    idInput,
+                    axios,
+                    swal,
+                    setIsLoading,
+                    setSearchInput,
+                    setSelectedProject,
+                    setIssuesList,
+                    setAdvancedSearch,
+                    setIdInput,
+                    setProjectInput,
+                    setOpenOrClose,
+                    inputRemover,
+                    setIsLog
+                }
+                advancedSearchFunc(advancedSearchFuncparams)
                 break
             case "search":
                 setIsSearchActive(true)
@@ -266,13 +402,29 @@ const App = () => {
                 break
             case "my-tickets":
                 setIsLog(prevIsLog => !prevIsLog)
-                closeFunc(setSelectedIssue, setAddProject, setNewProjectInput, setAddIssue, setUpdateIssue, setDeleteIssue, setAdvancedSearch, setOpenOrClose, setSearchInput, setProjectInput, setIdInput, inputRemover, setIsLog, "no")
+
+                let params = {
+                    setSelectedIssue,
+                    setAddProject,
+                    setNewProjectInput,
+                    setAddIssue,
+                    setUpdateIssue,
+                    setDeleteIssue,
+                    setAdvancedSearch,
+                    setOpenOrClose,
+                    setSearchInput,
+                    setProjectInput,
+                    setIdInput,
+                    inputRemover,
+                    setIsLog
+                }
+
+                closeFunc(params)
                 myTicketsFunc(axios, BASE_URL, setIssuesList, id, setIsLoading)
                 break
             case "demo-login":
                 setDemoUser("demoUser")
                 setIsLoggedIn(true)
-                //console.log("hihi")
                 break
             case "administrator-login":
                 setDemoUser("administrator")
@@ -286,8 +438,6 @@ const App = () => {
                 }
                 axios.post(`${BASE_URL}/login`, sendingData, {withCredentials: true}).then(response => {
                     const {data} = response
-                    //console.log(data)
-                    //console.log("in login")
 
                     if (data.hasOwnProperty("success")) {
                         setIsLoggedIn(true)
@@ -300,7 +450,6 @@ const App = () => {
                         // show the error msg
                     }
 
-                    //to do: cleaning up the inputs in all login fields
                 })
                 break
 
@@ -332,9 +481,6 @@ const App = () => {
                 axios.post(`${BASE_URL}/register`, sendingData2, {withCredentials: true}).then(response => {
                     const {data} = response
 
-                    //console.log(data)
-                    //console.log("in register axios")
-                    //console.log(data.user)
                     setIsLoggedIn(true)
                     setDemoUser(data.user)
                     setLoginUserInput("")

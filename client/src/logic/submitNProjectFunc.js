@@ -1,48 +1,48 @@
-const submitNProjectFunc = (setIsLoading, setSelectedProject, setIssuesList, setSelectedIssue, inputRemover, projects, newProjectInput, axios, BASE_URL, demoUser, swal, setCount, setNewProjectInput, setAddProject) => {
+const submitNProjectFunc = (params) => {
 
-    setIsLoading(true)
-    setSelectedProject("")
-    setIssuesList([])
-    setSelectedIssue({})
-    inputRemover(false, false, true, true)
+    params.setIsLoading(true)
+    params.setSelectedProject("")
+    params.setIssuesList([])
+    params.setSelectedIssue({})
+    params.inputRemover(false, false, true, true)
 
-    let isIt = projects.indexOf(newProjectInput)
+    let isIt = params.projects.indexOf(params.newProjectInput)
 
     if (isIt === -1) {
 
-        axios.post(`${BASE_URL}/api/issues/addProject/${newProjectInput}?user=${demoUser}`, {}).then(response => {
+        params.axios.post(`${params.BASE_URL}/api/issues/addProject/${params.newProjectInput}?user=${params.demoUser}`, {}).then(response => {
             const {data} = response
 
             if (data.hasOwnProperty("error")) {
-                swal.fire({
+                params.swal.fire({
                     icon: "error",
                     title: "Error!",
                     text: `${data.error}`
                 })
 
             } else {
-                swal.fire(`${data.project}`, "New project registered successfully", "success").then(
+                params.swal.fire(`${data.project}`, "New project registered successfully", "success").then(
                     (result) => {
                       if (result.isConfirmed || result.isDismissed) {
-                        setSelectedProject(newProjectInput)
-                        setIssuesList([data])
-                        setCount(prevCount => prevCount + 1)
+                        params.setSelectedProject(params.newProjectInput)
+                        params.setIssuesList([data])
+                        params.setCount(prevCount => prevCount + 1)
                       }
                     }
                 )
             }
-            setNewProjectInput("")
-            setAddProject(false)
-            setIsLoading(false)
+            params.setNewProjectInput("")
+            params.setAddProject(false)
+            params.setIsLoading(false)
         })
 
     } else {
-        swal.fire({
+        params.swal.fire({
             icon: "error",
             title: "Error!",
             text: "Project already exists!"
         })
-        setIsLoading(false)
+        params.setIsLoading(false)
     }
 }
 

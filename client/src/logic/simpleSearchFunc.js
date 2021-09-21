@@ -1,40 +1,40 @@
-const simpleSearchFunc = (setIsLoading, searchInput, axios, BASE_URL, setIssuesList, setSelectedProject, swal, setSearchInput, setMoreDetails, setIsLog) => {
+const simpleSearchFunc = (params) => {
 
-    setIsLoading(true)
-    setMoreDetails(false)
+    params.setIsLoading(true)
+    params.setMoreDetails(false)
     
-    if (searchInput) {
+    if (params.searchInput) {
 
-        axios.get(`${BASE_URL}/api/issues/${searchInput}`).then(response => {
+        params.axios.get(`${params.BASE_URL}/api/issues/${params.searchInput}`).then(response => {
 
             const {data} = response
 
             if (!data.hasOwnProperty("error")) {
 
                 if (data.length) {
-                    setIssuesList(data)
-                    setSelectedProject(searchInput)
+                    params.setIssuesList(data)
+                    params.setSelectedProject(params.searchInput)
 
                 } else {
-                    swal.fire({
+                    params.swal.fire({
                         icon: "error",
                         title: "Error!",
-                        text: `Project "${searchInput}" not found!`
+                        text: `Project "${params.searchInput}" not found!`
                     })
                 }
             } else {
-                swal.fire({
+                params.swal.fire({
                     icon: "error",
                     title: "Error!",
                     text: `${data.error}`
                 })
             }
-            setSearchInput("")
-            setIsLog(false)
-            setIsLoading(false)
+            params.setSearchInput("")
+            params.setIsLog(false)
+            params.setIsLoading(false)
         })
     } else {
-        setIsLoading(false)
+        params.setIsLoading(false)
     }
 }
 

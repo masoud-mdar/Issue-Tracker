@@ -1,10 +1,10 @@
-const issueUpdateDelFunc = (id, setIssueId, setUpdateIssue, setAddProject, setAddIssue, inputRemover) => {
+const issueUpdateDelFunc = (params) => {
 
-    setIssueId(id)
-    setUpdateIssue(true)
-    setAddProject(false)
-    setAddIssue(false)
-    inputRemover(false, false, false, true)
+    params.setIssueId(params.id)
+    params.setUpdateIssue(true)
+    params.setAddProject(false)
+    params.setAddIssue(false)
+    params.inputRemover(false, false, false, true)
 }
 
 export default issueUpdateDelFunc

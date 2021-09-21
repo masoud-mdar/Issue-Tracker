@@ -1,10 +1,10 @@
-const addProjectFunc = (setAddProject, setAddIssue, setUpdateIssue, inputRemover, setIsLog) => {
+const addProjectFunc = (params) => {
 
-    setAddProject(true)
-    setAddIssue(false)
-    setUpdateIssue(false)
-    setIsLog(false)
-    inputRemover(false, false, true, false)
+    params.setAddProject(true)
+    params.setAddIssue(false)
+    params.setUpdateIssue(false)
+    params.setIsLog(false)
+    params.inputRemover(false, false, true, false)
 }
 
 export default addProjectFunc
