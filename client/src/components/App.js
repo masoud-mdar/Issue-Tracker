@@ -16,6 +16,7 @@ import advancedSearchFunc from "../logic/advancedSearchFunc"
 import myTicketsFunc from "../logic/myTicketsFunc"
 import loginFunc from "../logic/loginFunc"
 import logOutFunc from "../logic/logOutFunc"
+import registerFunc from "../logic/registerFunc"
 
 import parameters from "../parameters/parameters"
 
@@ -151,7 +152,6 @@ const App = () => {
         isSetIssueId && setIssueId("")
         isSetMoreDetails && setMoreDetails(false)
     }
-
 
     const handleChange = (Event) => {
 
@@ -292,35 +292,16 @@ const App = () => {
                 let logOutFuncParams = parameters(variablesToExport, "logOutFuncParams")
                 logOutFunc(logOutFuncParams)
                 break
-
             case "register":
-
-                const sendingData2 = {
-                    username: regUserInput,
-                    password: regPassInput
-                }
-
-                axios.post(`${BASE_URL}/register`, sendingData2, {withCredentials: true}).then(response => {
-                    const {data} = response
-
-                    setIsLoggedIn(true)
-                    setDemoUser(data.user)
-                    setLoginUserInput("")
-                    setLoginPassInput("")
-                    setRegUserInput("")
-                    setRegPassInput("")
-
-                })
-
+                let registerFuncParams = parameters(variablesToExport, "registerFuncParams")
+                registerFunc(registerFuncParams)
                 break
-
             case "regMode-btn":
                 setIsRegMode(true)
                 break
             case "back-login":
                 setIsRegMode(false)
                 break
-
             default:
                 console.log(name)
                 break

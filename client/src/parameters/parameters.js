@@ -169,6 +169,18 @@ const parameters = (params, whichOne) => {
             setRegUserInput: params.setRegUserInput,
             setRegPassInput: params.setRegPassInput,
             setIsRegMode: params.setIsRegMode
+        },
+        registerFuncParams : {
+            regUserInput: params.regUserInput,
+            regPassInput: params.regPassInput,
+            BASE_URL: params.BASE_URL,
+            axios: params.axios,
+            setIsLoggedIn: params.setIsLoggedIn,
+            setDemoUser: params.setDemoUser,
+            setLoginUserInput: params.setLoginUserInput,
+            setLoginPassInput: params.setLoginPassInput,
+            setRegUserInput: params.setRegUserInput,
+            setRegPassInput: params.setRegPassInput
         }
     }
 
