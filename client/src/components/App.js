@@ -20,21 +20,8 @@ import registerFunc from "../logic/registerFunc"
 
 import parameters from "../parameters/parameters"
 
-import List from "./List"
-import Select from "./Select"
-import AddProject from "./AddProject"
-import AddIssBtn from "./AddIssBtn"
-import AddIssue from "./AddIssue"
-import UpdateIssue from "./UpdateIssue"
-import DeleteIssue from "./DeleteIssue"
-import MoreDetails from "./MoreDetails"
-import Loading from "./Loading"
-import Navbar from "./Navbar"
-import AdvancedSearch from "./AdvancedSearch"
-import Log from "./Log"
-import LoginPage from "./LoginPage"
-
 import {BASE_URL} from "../utils/constants"
+import View from "./View"
 
 const App = () => {
     const [projects, setProjects] = useState([])
@@ -390,174 +377,44 @@ const App = () => {
     }
 
     return (
-        <div>
-            {
-                !isLoading && isLoggedIn ? (
-
-
-                    <div className="container">
-
-                        <Navbar 
-                            data={{
-                                user: demoUser,
-                                handleChange,
-                                handleClick,
-                                searchInput,
-                                isSearchActive,
-                                isLog
-                            }}
-                        />
-
-                        <div className="main-part">
-
-                            <Select
-                                data={{
-                                    handleClick,
-                                    projects
-                                }}
-                            />
-
-                            <div className="info-part">
-                                {
-                                    addProject && (
-
-                                        <AddProject
-                                            data={{
-                                                handleClick,
-                                                handleChange,
-                                                newProjectInput
-                                            }}
-                                        />
-                                    )
-                                }
-                                {
-                                    selectedProject && !isLog && (
-                                        <AddIssBtn
-                                            data={{
-                                                handleClick,
-                                                selectedProject
-                                            }}
-                                        />
-                                    )
-                                }
-                                {
-                                    addIssue && selectedProject && (
-                                        <AddIssue
-                                            data={{
-                                                handleClick,
-                                                handleChange,
-                                                newIssueTitleInput,
-                                                newIssueTextInput,
-                                                newIssueCreatedInput,
-                                                newIssueAssignedInput,
-                                                newIssueStatusInput
-                                            }}
-                                        />
-                                    )
-                                }
-                                {
-                                    updateIssue && (
-                                        <UpdateIssue
-                                            data={{
-                                                handleClick,
-                                                handleChange,
-                                                openOrClose,
-                                                newIssueTitleInput,
-                                                newIssueTextInput,
-                                                newIssueCreatedInput,
-                                                newIssueAssignedInput,
-                                                newIssueStatusInput
-                                            }}
-                                        />
-                                    )
-                                }
-                                {
-                                    deleteIssue && (
-                                        <DeleteIssue
-                                            data={{
-                                                handleClick
-                                            }}
-                                        />
-                                    )
-                                }
-                                {
-                                    advancedSearch && (
-                                        <AdvancedSearch
-                                            data={{
-                                                handleChange,
-                                                handleClick,
-                                                openOrClose,
-                                                projectInput,
-                                                idInput,
-                                                newIssueTitleInput,
-                                                newIssueTextInput,
-                                                newIssueCreatedInput,
-                                                newIssueAssignedInput,
-                                                newIssueStatusInput
-                                            }}
-                                        />
-                                    )
-                                }
-                                {
-                                    moreDetails && (
-                                        <MoreDetails
-                                            data={{
-                                                handleClick,
-                                                handleCopy,
-                                                selectedIssue,
-                                                copied,
-                                                isLog
-                                            }}
-                                        />
-                                    )
-                                }
-
-                                {
-                                    isLog ? (
-
-                                        <Log
-                                            data={{
-                                                issuesList,
-                                                selectedProject,
-                                                myProjects: projects,
-                                                handleClick
-                                            }}
-                                        />
-
-                                    ) : (
-
-                                        <List
-                                            data={{
-                                                issuesList,
-                                                selectedProject,
-                                                handleClick
-                                            }}
-                                        />
-                                    )
-                                }
-            
-                            </div>
-                        </div>
-                    </div>
-
-                ) : !isLoading && !isLoggedIn ? (
-                    <LoginPage
-                        data={{
-                            handleClick,
-                            handleChange,
-                            loginUserInput,
-                            loginPassInput,
-                            regUserInput,
-                            regPassInput,
-                            isRegMode
-                        }}
-                    />
-                ) : (
-                    <Loading />
-                )
-            }
-            
-        </div>
+        <View
+        data = {{
+            handleChange,
+            handleClick,
+            handleCopy,
+            isLoading,
+            isLoggedIn,
+            demoUser,
+            searchInput,
+            isSearchActive,
+            isLog,
+            projects,
+            addProject,
+            newProjectInput,
+            selectedProject,
+            addIssue,
+            newIssueTitleInput,
+            newIssueTextInput,
+            newIssueCreatedInput,
+            newIssueAssignedInput,
+            newIssueStatusInput,
+            updateIssue,
+            openOrClose,
+            deleteIssue,
+            advancedSearch,
+            projectInput,
+            idInput,
+            moreDetails,
+            selectedIssue,
+            copied,
+            issuesList,
+            loginUserInput,
+            loginPassInput,
+            regUserInput,
+            regPassInput,
+            isRegMode
+        }}
+        />
     )
 }
 
