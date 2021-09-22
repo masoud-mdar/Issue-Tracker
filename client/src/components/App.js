@@ -14,6 +14,8 @@ import surelyDeleteFunc from "../logic/surelyDeleteFunc"
 import simpleSearchFunc from "../logic/simpleSearchFunc"
 import advancedSearchFunc from "../logic/advancedSearchFunc"
 import myTicketsFunc from "../logic/myTicketsFunc"
+import loginFunc from "../logic/loginFunc"
+import logOutFunc from "../logic/logOutFunc"
 
 import parameters from "../parameters/parameters"
 
@@ -150,52 +152,39 @@ const App = () => {
         isSetMoreDetails && setMoreDetails(false)
     }
 
+
     const handleChange = (Event) => {
 
         const {name, value} = Event.target
 
         switch (name) {
-            case "new-project-input":
-                setNewProjectInput(value)
+            case "new-project-input": setNewProjectInput(value)
                 break
-            case "add-issue-title":
-                setNewIssueTitleInput(value)
+            case "add-issue-title": setNewIssueTitleInput(value)
                 break
-            case "add-issue-text":
-                setNewIssueTextInput(value)
+            case "add-issue-text": setNewIssueTextInput(value)
                 break
-            case "add-issue-created":
-                setNewIssueCreatedInput(value)
+            case "add-issue-created": setNewIssueCreatedInput(value)
                 break
-            case "add-issue-assigned":
-                setNewIssueAssignedInput(value)
+            case "add-issue-assigned": setNewIssueAssignedInput(value)
                 break
-            case "add-issue-status-text":
-                setNewIssueStatusInput(value)
+            case "add-issue-status-text": setNewIssueStatusInput(value)
                 break
-            case "search":
-                setSearchInput(value)
+            case "search": setSearchInput(value)
                 break
-            case "idInput":
-                setIdInput(value)
+            case "idInput": setIdInput(value)
                 break
-            case "projectInput":
-                setProjectInput(value)
+            case "projectInput": setProjectInput(value)
                 break
-            case "open-close":
-                setOpenOrClose(value)
+            case "open-close": setOpenOrClose(value)
                 break
-            case "login-username":
-                setLoginUserInput(value)
+            case "login-username": setLoginUserInput(value)
                 break
-            case "login-password":
-                setLoginPassInput(value)
+            case "login-password": setLoginPassInput(value)
                 break
-            case "register-username":
-                setRegUserInput(value)
+            case "register-username": setRegUserInput(value)
                 break
-            case "register-password":
-                setRegPassInput(value)
+            case "register-password": setRegPassInput(value)
                 break
             default:
                 console.log(name)
@@ -213,21 +202,19 @@ const App = () => {
                 getList(innerHTML)
                 break
             case "details":
-                !moreDetails && moreDetailsFunc(id, setIsLoading, setMoreDetails, issuesList, setSelectedIssue, inputRemover)
+                let moreDetailsFuncParams = parameters(variablesToExport, "moreDetailsFuncParams")
+                !moreDetails && moreDetailsFunc(moreDetailsFuncParams, id)
                 break
             case "close":
-
                 let closeFuncparams = parameters(variablesToExport, "closeFuncparams")
                 closeFunc(closeFuncparams)
                 break
             case "add-project":
-
                 let addProjectFuncparams = parameters(variablesToExport, "addProjectFuncparams")
                 addProjectFunc(addProjectFuncparams)
                 break
             case "submit-new-project":
                 setIsLog(false)
-
                 let submitNProjectFuncparams = parameters(variablesToExport, "submitNProjectFuncparams")
                 submitNProjectFunc(submitNProjectFuncparams)
                 break
@@ -285,7 +272,8 @@ const App = () => {
                 let params = parameters(variablesToExport, "closeFuncparams")
                 closeFunc(params)
 
-                myTicketsFunc(axios, BASE_URL, setIssuesList, id, setIsLoading)
+                let myTicketsFuncParams = parameters(variablesToExport, "myTicketsFuncParams")
+                myTicketsFunc(myTicketsFuncParams, id)
                 break
             case "demo-login":
                 setDemoUser("demoUser")
@@ -297,43 +285,12 @@ const App = () => {
                 break
             case "login":
                 // connect to server to log in
-                const sendingData = {
-                    username: loginUserInput,
-                    password: loginPassInput
-                }
-                axios.post(`${BASE_URL}/login`, sendingData, {withCredentials: true}).then(response => {
-                    const {data} = response
-
-                    if (data.hasOwnProperty("success")) {
-                        setIsLoggedIn(true)
-                        setDemoUser(data.user)
-                        setLoginUserInput("")
-                        setLoginPassInput("")
-                        setRegUserInput("")
-                        setRegPassInput("")
-                    } else if (data.hasOwnProperty("error")) {
-                        // show the error msg
-                    }
-
-                })
+                let loginFuncParams = parameters(variablesToExport, "loginFuncParams")
+                loginFunc(loginFuncParams)
                 break
-
             case "logout":
-
-                axios.get(`${BASE_URL}/logout`).then(response => {
-                    const {data} = response
-
-                    console.log(data)
-                    //show a msg maybe
-                    setIsLoggedIn(false)
-                    setDemoUser("")
-                    setLoginUserInput("")
-                    setLoginPassInput("")
-                    setRegUserInput("")
-                    setRegPassInput("")
-                    setIsRegMode(false)
-
-                })
+                let logOutFuncParams = parameters(variablesToExport, "logOutFuncParams")
+                logOutFunc(logOutFuncParams)
                 break
 
             case "register":

@@ -1,14 +1,14 @@
-const moreDetailsFunc = (id, setIsLoading, setMoreDetails, issuesList, setSelectedIssue, inputRemover) => {
+const moreDetailsFunc = (params, id) => {
 
-    setIsLoading(true)
-    setMoreDetails(true)
+    params.setIsLoading(true)
+    params.setMoreDetails(true)
 
-    let selected = issuesList.filter(item => {
+    let selected = params.issuesList.filter(item => {
         return item._id === id
     })
 
-    setSelectedIssue(selected[0])
-    inputRemover(false, true, true, false)
+    params.setSelectedIssue(selected[0])
+    params.inputRemover(false, true, true, false)
 }
 
 export default moreDetailsFunc

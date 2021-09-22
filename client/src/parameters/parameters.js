@@ -133,6 +133,42 @@ const parameters = (params, whichOne) => {
             setOpenOrClose: params.setOpenOrClose,
             inputRemover: params.inputRemover,
             setIsLog: params.setIsLog
+        },
+        moreDetailsFuncParams : {
+            issuesList: params.issuesList,
+            setIsLoading: params.setIsLoading,
+            setMoreDetails: params.setMoreDetails,
+            setSelectedIssue: params.setSelectedIssue,
+            inputRemover: params.inputRemover
+        },
+        myTicketsFuncParams : {
+            BASE_URL: params.BASE_URL,
+            axios: params.axios,
+            setIssuesList: params.setIssuesList,
+            setIsLoading: params.setIsLoading
+        },
+        loginFuncParams : {
+            loginUserInput: params.loginUserInput,
+            loginPassInput: params.loginPassInput,
+            BASE_URL: params.BASE_URL,
+            axios: params.axios,
+            setIsLoggedIn: params.setIsLoggedIn,
+            setDemoUser: params.setDemoUser,
+            setLoginUserInput: params.setLoginUserInput,
+            setLoginPassInput: params.setLoginPassInput,
+            setRegUserInput: params.setRegUserInput,
+            setRegPassInput: params.setRegPassInput
+        },
+        logOutFuncParams : {
+            BASE_URL: params.BASE_URL,
+            axios: params.axios,
+            setIsLoggedIn: params.setIsLoggedIn,
+            setDemoUser: params.setDemoUser,
+            setLoginUserInput: params.setLoginUserInput,
+            setLoginPassInput: params.setLoginPassInput,
+            setRegUserInput: params.setRegUserInput,
+            setRegPassInput: params.setRegPassInput,
+            setIsRegMode: params.setIsRegMode
         }
     }
 
