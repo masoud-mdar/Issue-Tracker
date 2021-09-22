@@ -21,6 +21,7 @@ import registerFunc from "../logic/registerFunc"
 import parameters from "../parameters/parameters"
 
 import {BASE_URL} from "../utils/constants"
+
 import View from "./View"
 
 const App = () => {
@@ -73,7 +74,6 @@ const App = () => {
     let timerId
 
     useEffect(() => {
-
         setIsLoading(true)
 
         axios.get(`${BASE_URL}/api/issues/all`).then(response => {
@@ -84,14 +84,12 @@ const App = () => {
 
                 (tempArr.indexOf(element.project) === -1) && (tempArr.push(element.project))
             })
-
             setProjects(tempArr)
             setIsLoading(false)
         })
     }, [])
 
     useEffect(() => {
-
         setIsLoading(true)
     
         axios.get(`${BASE_URL}/api/issues/all`).then(response => {
@@ -102,12 +100,10 @@ const App = () => {
     
                 (tempArr.indexOf(element.project) === -1) && (tempArr.push(element.project))
             })
-    
             setProjects(tempArr)
             setSelectedProject("")
             setIsLoading(false)
         })
-
     }, [count])
 
     const getList = (innerHTML) => {
@@ -141,7 +137,6 @@ const App = () => {
     }
 
     const handleChange = (Event) => {
-
         const {name, value} = Event.target
 
         switch (name) {
@@ -180,7 +175,6 @@ const App = () => {
     }
 
     const handleClick = (Event) => {
-
         const {name, innerHTML, id} = Event.target
 
         switch (name) {
@@ -295,7 +289,6 @@ const App = () => {
         }
     }
 
-
     const handleCopy = (Event) => {
         setCopied(Event)
     }
@@ -378,42 +371,42 @@ const App = () => {
 
     return (
         <View
-        data = {{
-            handleChange,
-            handleClick,
-            handleCopy,
-            isLoading,
-            isLoggedIn,
-            demoUser,
-            searchInput,
-            isSearchActive,
-            isLog,
-            projects,
-            addProject,
-            newProjectInput,
-            selectedProject,
-            addIssue,
-            newIssueTitleInput,
-            newIssueTextInput,
-            newIssueCreatedInput,
-            newIssueAssignedInput,
-            newIssueStatusInput,
-            updateIssue,
-            openOrClose,
-            deleteIssue,
-            advancedSearch,
-            projectInput,
-            idInput,
-            moreDetails,
-            selectedIssue,
-            copied,
-            issuesList,
-            loginUserInput,
-            loginPassInput,
-            regUserInput,
-            regPassInput,
-            isRegMode
-        }}
+            data = {{
+                handleChange,
+                handleClick,
+                handleCopy,
+                isLoading,
+                isLoggedIn,
+                demoUser,
+                searchInput,
+                isSearchActive,
+                isLog,
+                projects,
+                addProject,
+                newProjectInput,
+                selectedProject,
+                addIssue,
+                newIssueTitleInput,
+                newIssueTextInput,
+                newIssueCreatedInput,
+                newIssueAssignedInput,
+                newIssueStatusInput,
+                updateIssue,
+                openOrClose,
+                deleteIssue,
+                advancedSearch,
+                projectInput,
+                idInput,
+                moreDetails,
+                selectedIssue,
+                copied,
+                issuesList,
+                loginUserInput,
+                loginPassInput,
+                regUserInput,
+                regPassInput,
+                isRegMode
+            }}
         />
     )
 }
