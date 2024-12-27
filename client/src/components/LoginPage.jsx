@@ -14,7 +14,7 @@ const LoginPage = (props) => {
                     </div>
                     <div className="administrator-login">
                         <button name="administrator-login" onClick={props.data.handleClick}></button>
-                        <div className="hover-div">Login as administrator</div>
+                        <div className="hover-div">Login as demo administrator</div>
                     </div>
                     
                     

@@ -15,6 +15,7 @@ import Log from "./Log"
 import LoginPage from "./LoginPage"
 
 const View = (props) => {
+    console.log(props)
 
     return (
         <div>

@@ -64,8 +64,8 @@ input::placeholder {
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
-        border: 1px solid #fafafa;
-        border-radius: 5px;
+        /* border: 1px solid #fafafa; */
+        /* border-radius: 5px; */
     }
     .login-wrapper .default-part {
         width: 40vw;
@@ -125,9 +125,11 @@ input::placeholder {
         top: 0;
         height: 10vh;
         padding: 10px;
-        background-color: orange;
+        /* background-color: orange; */
+        background-color: #141414;
         border-radius: 5px;
-        color: #002433;
+        /* color: #002433; */
+        color: #faffff;
         font-weight: bolder;
     }
     .login-wrapper {
@@ -137,8 +139,8 @@ input::placeholder {
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
-        border: 1px solid #fafafa;
-        border-radius: 5px;
+        /* border: 1px solid #fafafa;
+        border-radius: 5px; */
     }
     .login-wrapper .default-part {
         width: 30vw;

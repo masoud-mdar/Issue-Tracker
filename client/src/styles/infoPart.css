@@ -4,7 +4,7 @@
 
 @media only screen and (max-width: 649px) {
     .info-part {
-        background-image: url("../public/Vorderrhein.png");
+        /* background-image: url("../public/Vorderrhein.png"); */
         background-size: cover;
         position: relative;
         display: flex;
@@ -12,6 +12,7 @@
         align-items: center;
         width: 45vw;
         height: 90vh;
+        background-color: #141414;
         overflow: hidden;
     }
     .add-issue-btn .add-btn {
@@ -31,6 +32,7 @@
         margin-left: 3px;
         margin-right: 1px;
         border-radius: 2px;
+        background-color: #141414;
         overflow: auto;
     }
     .issues-list ul {
@@ -94,7 +96,8 @@
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-        background-color: #e4fdfd;
+        /* background-color: #e4fdfd; */
+        background-color: #141414;
         border-radius: 5px;
         z-index: 2;
     }
@@ -157,7 +160,7 @@
 
 @media only screen and (min-width: 649px) {
     .info-part {
-        background-image: url("../public/Vorderrhein.png");
+        /* background-image: url("../public/Vorderrhein.png"); */
         background-size: cover;
         position: relative;
         display: flex;
@@ -165,6 +168,7 @@
         align-items: center;
         width: 75vw;
         height: 90vh;
+        background-color: #141414;
         overflow: hidden;
     }
     .issues-list {
@@ -175,6 +179,7 @@
         margin-left: 3px;
         margin-right: 1px;
         border-radius: 2px;
+        background-color: #141414;
         overflow: auto;
     }
     .add-issue-btn .add-btn {
@@ -218,17 +223,25 @@
     .issues-list ul li button {
         height: 10vh;
         width: 10vw;
-        border-right: 5px solid #00ff93;
-        background-color: #00ff93;
+        /* border-right: 5px solid #00ff93; */
+        /* background-color: #00ff93; */
+        background-color: #141414;
+        /* color: #002433; */
+        color: #faffff;
+        border: 1px solid #00ff93;
+        border-left: none;
         border-radius: 0 3px 3px 0;
-        color: #002433;
+        
     }
     
     .issues-list ul .row {
         position: sticky;
         top: 0;
         height: 10vh;
-        color: #002433;
+        /* color: #002433; */
+        background-color: #141414;
+        color: #faffff;
+        border: 1px solid #00ff93;
         font-weight: bolder;
         font-size: large;
         z-index: 1;
@@ -242,7 +255,9 @@
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-        background-color: #e4fdfd;
+        /* background-color: #e4fdfd; */
+        background-color: #141414;
+        border: 1px solid #00ff93;
         border-radius: 5px;
         animation: sizy 1s ease-in-out;
         z-index: 2;
@@ -253,14 +268,18 @@
         margin: auto;
         margin-top: 50px;
         background-color: #002433;
+        /* border: 2px solid #00ff93; */
         color: #faffff;
     }
     .add-project .add-btn {
         width: 25vw;
         margin: auto;
         padding: 16px;
-        background-color: #00ff93;
-        color: #002433;
+        /* background-color: #00ff93; */
+        background: none;
+        border: 1px solid #00ff93;
+        /* color: #002433; */
+        color: #faffff;
     }
     .add-issue {
         position: absolute;
