@@ -1,4 +1,5 @@
-export const BASE_URL = "https://issue-tracker-msd.herokuapp.com"
+// export const BASE_URL = "https://issue-tracker-msd.herokuapp.com"
+export const BASE_URL = "https://issue-tracker-ms0x.onrender.com"
 // export const BASE_URL = "http://localhost:5000"
 
 
